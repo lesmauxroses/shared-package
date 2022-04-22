@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct OnboardingView: View {
+public struct OnboardingView: View {
     var steps: [OnboardingStep]
     var buttonText: String
     var onButtonTapped: () -> Void
     
-    var body: some View {
+    public var body: some View {
         VStack {
             ForEach(steps) { step in
                 

@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct InformationView: View {
+public struct InformationView: View {
     var title: String?
     var message: String?
     var buttonText: String?
     var onButtonTapped: () -> Void
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             VStack(spacing: 60) {
 //                Image("illu-oeil").blendMode(.normal)
