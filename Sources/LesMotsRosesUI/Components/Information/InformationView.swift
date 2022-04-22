@@ -8,9 +8,9 @@
 import SwiftUI
 
 public struct InformationView: View {
-    var title: String?
-    var message: String?
-    var buttonText: String?
+    public var title: String?
+    public var message: String?
+    public var buttonText: String?
     var onButtonTapped: () -> Void
     
     public var body: some View {
