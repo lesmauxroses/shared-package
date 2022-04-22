@@ -11,7 +11,7 @@ public struct InformationView: View {
     public var title: String?
     public var message: String?
     public var buttonText: String?
-    var onButtonTapped: () -> Void
+    public var onButtonTapped: () -> Void
     
     public var body: some View {
         ZStack {
