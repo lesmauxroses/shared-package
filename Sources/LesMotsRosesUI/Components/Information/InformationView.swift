@@ -31,12 +31,9 @@ struct InformationView: View {
                 }
                 
                 if let buttonText = buttonText {
-                    Button {
+                    BasicButton(text: buttonText) {
                         onButtonTapped()
-                    } label: {
-                        Text(buttonText)
                     }
-
                 }
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
