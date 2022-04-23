@@ -23,25 +23,28 @@ public struct InformationView: View {
     public var body: some View {
         ZStack {
             VStack(spacing: 60) {
-                //                Image("illu-oeil").blendMode(.normal)
+                Image("illu-eye").blendMode(.normal)
                 
-                if let title = title {
-                    Text(title)
-                        .foregroundColor(Color.white)
-                        .font(.custom("JosefinSans-Bold", size: 52))
-                }
-                
-                if let message = message {
-                    Text(message)
-                        .foregroundColor(Color.white)
-                        .font(.custom("JosefinSans-Bold", size: 52))
-                }
-                
-                if let buttonText = buttonText {
-                    BasicButton(isLoading: .constant(false), text: buttonText) {
-                        if let onButtonTapped = onButtonTapped {
-                            onButtonTapped()
-                        }
+                VStack(spacing: 40) {
+                    if let title = title {
+                        Text(title)
+                            .foregroundColor(Color.white)
+                            .font(.custom("JosefinSans-Bold", size: 50))
+                    }
+                    
+                    if let message = message {
+                        Text(message)
+                            .foregroundColor(Color.white)
+                            .font(.custom("JosefinSans-Bold", size: 27))
+                            .multilineTextAlignment(.center)
+                    }
+                    
+                    if let buttonText = buttonText {
+                        BasicButton(isLoading: .constant(false), type: .secondary, text: buttonText) {
+                            if let onButtonTapped = onButtonTapped {
+                                onButtonTapped()
+                            }
+                        }.blendMode(.normal)
                     }
                 }
             }

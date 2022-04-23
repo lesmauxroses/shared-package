@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct BasicButtonStyle: ButtonStyle {
+    var type: ButtonType
     var height: CGFloat? = 64
     var fontSize: CGFloat = 24
     var horizontalPadding: CGFloat? = 40
@@ -16,9 +17,9 @@ struct BasicButtonStyle: ButtonStyle {
             .label
             .frame(height: height, alignment: .center)
             .padding(.horizontal, 40)
-            .background(Color.purple100)
+            .background(type == .primary ? Color.purple100 : Color.paleBrown100)
             .font(.custom("JosefinSans-SemiBold", size: fontSize))
-            .foregroundColor(.white)
+            .foregroundColor(type == .primary ? .white : Color.dark100)
             .cornerRadius(16)
     }
 }
