@@ -15,9 +15,9 @@ public struct OnboardingView: View {
     }
     
     public var body: some View {
-        HStack {
+        HStack(spacing: 20) {
             ForEach(Array(steps.enumerated()), id: \.element) { index, element in
-                VStack {
+                VStack(spacing: 30) {
                     Text("\(index)")
                         .foregroundColor(Color.dark100)
                         .frame(width: 60, height: 60)
