@@ -29,13 +29,13 @@ public struct InformationView: View {
                     if let title = title {
                         Text(title)
                             .foregroundColor(Color.white)
-                            .font(.custom("JosefinSans-Bold", size: 50))
+                            .font(.josefinSansLargeTitle)
                     }
                     
                     if let message = message {
                         Text(message)
                             .foregroundColor(Color.white)
-                            .font(.custom("JosefinSans-Bold", size: 27))
+                            .font(.josefinSansTitle1)
                             .multilineTextAlignment(.center)
                     }
                     

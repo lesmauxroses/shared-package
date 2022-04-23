@@ -36,6 +36,7 @@ public struct BasicButton: View {
                         .frame(height: 64)
                 } else {
                     Text(text)
+                        .font(.josefinSans)
                 }
             }
         }
