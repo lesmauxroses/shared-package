@@ -23,7 +23,9 @@ public struct InformationView: View {
     public var body: some View {
         ZStack {
             VStack(spacing: 60) {
-                Image("illu-eye").blendMode(.normal)
+                Image(packageResource: "illu-eye", ofType: "svg")
+                    .resizable()
+                    .blendMode(.normal)
                 
                 VStack(spacing: 40) {
                     if let title = title {
