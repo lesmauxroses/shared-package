@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct SliderCard: View {
-    var item: SliderItem
+    let item: SliderItem
     var isSelected: Bool
     
     var body: some View {
         VStack {
             Image(item.imageName)
                 .resizable()
-                .scaleEffect(isSelected ? 1 : 0.8)
-                .frame(width: 350, height: 437)
+                .frame(width: isSelected ? 329 : 274, height: isSelected ? 274 : 342)
             Text(item.title)
         }.opacity(isSelected ? 1 : 0.4)
     }
