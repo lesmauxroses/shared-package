@@ -6,13 +6,20 @@
 //
 import SwiftUI
 
-struct BasicButtonStyle: ButtonStyle {
+public struct BasicButtonStyle: ButtonStyle {
     var type: ButtonType
     var height: CGFloat? = 64
     var fontSize: CGFloat = 24
     var horizontalPadding: CGFloat? = 40
     
-    func makeBody(configuration: Configuration) -> some View {
+    public init(type: ButtonType = .primary, height: CGFloat? = 64, fontSize: CGFloat = 24, horizontalPadding: CGFloat? = 40) {
+        self.type = type
+        self.height = height
+        self.fontSize = fontSize
+        self.horizontalPadding = horizontalPadding
+    }
+    
+    public func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
             .frame(height: height, alignment: .center)
