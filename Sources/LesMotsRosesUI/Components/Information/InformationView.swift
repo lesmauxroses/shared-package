@@ -8,15 +8,22 @@
 import SwiftUI
 
 public struct InformationView: View {
-    public var title: String?
-    public var message: String?
-    public var buttonText: String?
-    public var onButtonTapped: () -> Void
+    let title: String?
+    let message: String?
+    let buttonText: String?
+    var onButtonTapped: (() -> Void)?
+    
+    public init(title: String?, message: String?, buttonText: String?, onButtonTapped: (() -> Void)?) {
+        self.title = title
+        self.message = message
+        self.buttonText = buttonText
+        self.onButtonTapped = onButtonTapped
+    }
     
     public var body: some View {
         ZStack {
             VStack(spacing: 60) {
-//                Image("illu-oeil").blendMode(.normal)
+                //                Image("illu-oeil").blendMode(.normal)
                 
                 if let title = title {
                     Text(title)
@@ -32,14 +39,16 @@ public struct InformationView: View {
                 
                 if let buttonText = buttonText {
                     BasicButton(text: buttonText) {
-                        onButtonTapped()
+                        if let onButtonTapped = onButtonTapped {
+                            onButtonTapped()
+                        }
                     }
                 }
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.purple)
             .blendMode(.lighten)
-//            .background(Image("bg-grain"))
+        //            .background(Image("bg-grain"))
             .ignoresSafeArea()
     }
 }
