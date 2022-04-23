@@ -13,7 +13,7 @@ public struct InformationView: View {
     let buttonText: String?
     var onButtonTapped: (() -> Void)?
     
-    public init(title: String?, message: String?, buttonText: String?, onButtonTapped: (() -> Void)?) {
+    public init(title: String? = nil, message: String? = nil, buttonText: String? = nil, onButtonTapped: (() -> Void)? = nil) {
         self.title = title
         self.message = message
         self.buttonText = buttonText
