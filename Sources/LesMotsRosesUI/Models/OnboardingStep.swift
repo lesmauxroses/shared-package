@@ -8,7 +8,13 @@
 import SwiftUI
 
 public struct OnboardingStep: Identifiable, Hashable {
-    public var id: String
-    var description: String
-    var imageName: String
+    public let id: String
+    let description: String
+    let imageName: String
+    
+    public init(id: String, description: String, imageName: String) {
+        self.id = id
+        self.description = description
+        self.imageName = imageName
+    }
 }
