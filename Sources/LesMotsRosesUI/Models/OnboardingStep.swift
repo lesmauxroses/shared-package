@@ -9,6 +9,6 @@ import SwiftUI
 
 public struct OnboardingStep: Identifiable {
     public var id: String
-    var text: String
-    var image: Image
+    var description: String
+    var imageName: Image
 }

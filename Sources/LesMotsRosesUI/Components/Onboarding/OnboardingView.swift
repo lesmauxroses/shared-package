@@ -8,18 +8,33 @@
 import SwiftUI
 
 public struct OnboardingView: View {
-    var steps: [OnboardingStep]
-    var buttonText: String
-    var onButtonTapped: () -> Void
+    let steps: [OnboardingStep]
+    
+    public init(steps: [OnboardingStep]) {
+        self.steps = steps
+    }
     
     public var body: some View {
         VStack {
-            ForEach(steps) { step in
-                
-            }
-            
-            BasicButton(isLoading: .constant(false), text: buttonText) {
-                onButtonTapped()
+            ForEach(Array(steps.enumerated()), id: \.element) { index, element in
+                VStack {
+                    Text(index)
+                        .padding(50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(Color.purple100, lineWidth: 2)
+                        )
+                    
+                    Image(step.imageName)
+                    
+                    Text(step.description)
+                        .font(.josefinSans)
+                        .padding(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(Color.dark100, lineWidth: 2)
+                        )
+                }
             }
         }
     }
