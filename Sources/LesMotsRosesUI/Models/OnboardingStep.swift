@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-public struct OnboardingStep: Identifiable {
+public struct OnboardingStep: Identifiable, Hashable {
     public var id: String
     var description: String
-    var imageName: Image
+    var imageName: String
 }

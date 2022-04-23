@@ -18,16 +18,16 @@ public struct OnboardingView: View {
         VStack {
             ForEach(Array(steps.enumerated()), id: \.element) { index, element in
                 VStack {
-                    Text(index)
+                    Text("\(index)")
                         .padding(50)
                         .overlay(
                             RoundedRectangle(cornerRadius: 25)
                                 .stroke(Color.purple100, lineWidth: 2)
                         )
                     
-                    Image(step.imageName)
+                    Image(element.imageName)
                     
-                    Text(step.description)
+                    Text(element.description)
                         .font(.josefinSans)
                         .padding(20)
                         .overlay(
