@@ -18,7 +18,7 @@ public struct OnboardingView: View {
                 
             }
             
-            BasicButton(text: buttonText) {
+            BasicButton(isLoading: .constant(false), text: buttonText) {
                 onButtonTapped()
             }
         }

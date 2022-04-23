@@ -38,7 +38,7 @@ public struct InformationView: View {
                 }
                 
                 if let buttonText = buttonText {
-                    BasicButton(text: buttonText) {
+                    BasicButton(isLoading: .constant(false), text: buttonText) {
                         if let onButtonTapped = onButtonTapped {
                             onButtonTapped()
                         }
@@ -46,9 +46,17 @@ public struct InformationView: View {
                 }
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.purple)
+            .background(Color.purple100)
             .blendMode(.lighten)
         //            .background(Image("bg-grain"))
             .ignoresSafeArea()
+    }
+}
+
+struct InformationView_Previews: PreviewProvider {
+    static var previews: some View {
+        InformationView(title: "On attend pas Patrick ?", message: "Patrick est très important pour ce projet", buttonText: "Attendre Patrick", onButtonTapped: {
+            print("J'attends Patrick")
+        })
     }
 }
