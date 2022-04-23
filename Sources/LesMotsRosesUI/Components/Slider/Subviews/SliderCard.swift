@@ -13,8 +13,8 @@ struct SliderCard: View {
     
     var body: some View {
         VStack {
-            Image(movie.imageName)
-            Text(movie.name)
+            Image(item.imageName)
+            Text(item.title)
         }.opacity(isSelected ? 1 : 0.4)
     }
 }
