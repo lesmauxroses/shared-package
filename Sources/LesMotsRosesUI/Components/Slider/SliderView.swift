@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SliderView: View {
+public struct SliderView: View {
     @StateObject var viewModel = SliderViewModel()
     
     let items: [SliderItem]
@@ -16,7 +16,7 @@ struct SliderView: View {
         self.items = items
     }
     
-    var body: some View {
+    public var body: some View {
         HStack {
             ForEach(items) { item in
                 SliderCard(item: item, isSelected: isSelected(id: item.id)).onTapGesture {
