@@ -14,6 +14,9 @@ struct SliderCard: View {
     var body: some View {
         VStack {
             Image(item.imageName)
+                .resizable(isSelected ? 1 : 0.8)
+                .scaleEffect(
+                .frame(width: 350, height: 437)
             Text(item.title)
         }.opacity(isSelected ? 1 : 0.4)
     }
