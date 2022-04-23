@@ -25,7 +25,10 @@ let package = Package(
         .target(
             name: "LesMotsRosesUI",
             dependencies: [],
-            resources: [.process("Fonts")]
+            resources: [
+                .process("Fonts"),
+                .process("Resources")
+            ]
         ),
         .testTarget(
             name: "LesMotsRosesUITests",
