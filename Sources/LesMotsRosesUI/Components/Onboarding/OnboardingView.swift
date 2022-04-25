@@ -11,10 +11,6 @@ public struct OnboardingView: View {
     @State var onboardingStep: Int
     @StateObject var viewModel = OnboardingViewModel()
     
-    public init(onboardingStep: Int) {
-        self.onboardingStep = onboardingStep
-    }
-    
     public var body: some View {
         NavigationView {
             OnboardingWelcome().environmentObject(viewModel)
