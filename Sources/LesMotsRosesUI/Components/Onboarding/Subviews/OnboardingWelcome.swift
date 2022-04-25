@@ -13,6 +13,8 @@ struct OnboardingWelcome: View {
     
     var body: some View {
         VStack {
+            Spacer()
+            
             NavigationLink(
                 destination: OnboardingIntro().environmentObject(onboardingViewModel),
                 isActive: $shouldPassView
@@ -24,6 +26,8 @@ struct OnboardingWelcome: View {
                 Text("Déposez votre badge sur le socle pour lancer l’interaction")
                     .font(.josefinSansTitle1)
             }.foregroundColor(Color.paleBrown100)
+            
+            Spacer()
         }.onChange(of: onboardingViewModel.onboardingStep) { newStep in
             if newStep == 2 {
                 shouldPassView = true
