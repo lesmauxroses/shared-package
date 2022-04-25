@@ -12,7 +12,7 @@ struct OnboardingIntro: View {
     @State private var shouldPassView = false
     
     var body: some View {
-        VStack {
+        VStack(spacing: 150) {
             NavigationLink(
                 destination: OnboardingMission(),
                 isActive: $shouldPassView

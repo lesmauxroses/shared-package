@@ -20,13 +20,15 @@ struct OnboardingWelcome: View {
                 isActive: $shouldPassView
             ) { EmptyView() }
             
-            VStack(spacing: 20) {
+            VStack(spacing: 150) {
                 Image("illu_eye_big")
                 
-                Text("Bienvenue dans la première interaction !")
-                    .font(.josefinSansLargeTitle)
-                Text("Déposez votre badge sur le socle pour lancer l’interaction")
-                    .font(.josefinSansTitle1)
+                VStack(spacing: 20) {
+                    Text("Bienvenue dans la première interaction !")
+                        .font(.josefinSansLargeTitle)
+                    Text("Déposez votre badge sur le socle pour lancer l’interaction")
+                        .font(.josefinSansTitle1)
+                }
             }.foregroundColor(Color.paleBrown100)
             
             Spacer()
