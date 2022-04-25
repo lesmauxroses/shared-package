@@ -39,7 +39,6 @@ struct OnboardingWelcome: View {
         }
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
         .background(Color.dark100)
     }
 }

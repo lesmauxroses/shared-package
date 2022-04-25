@@ -17,6 +17,7 @@ struct OnboardingMission: View {
             Text("Répondez à 4 questions sur les personnalités de vos personnages de séries et films, dans un temps limite de 10 minutes.")
                 .font(.josefinSansTitle1)
         }
+        .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
         .background(Color.paleBrown100)
