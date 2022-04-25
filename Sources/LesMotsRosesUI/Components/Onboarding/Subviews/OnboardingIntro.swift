@@ -18,7 +18,8 @@ struct OnboardingIntro: View {
                 isActive: $shouldPassView
             ) { EmptyView() }
             
-            Text("Oeil ici")
+            Image("illu_eye_big_dark")
+            
             Text("Bonjour et bienvenue la famille Rnard ! ")
                 .font(.josefinSansTitle1)
                 .foregroundColor(Color.dark100)
