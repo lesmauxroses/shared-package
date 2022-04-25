@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct OnboardingView: View {
+public struct OnboardingView: View {
     @State var onboardingStep: Int
     @StateObject var viewModel = OnboardingViewModel()
     
-    var body: some View {
+    public var body: some View {
         NavigationView {
             OnboardingWelcome().environmentObject(viewModel)
         }.onChange(of: onboardingStep) { newStep in
