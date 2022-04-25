@@ -20,6 +20,6 @@ public struct OnboardingView: View {
             OnboardingWelcome().environmentObject(viewModel)
         }.onChange(of: onboardingStep) { newStep in
             viewModel.onboardingStep = newStep
-        }
+        }.navigationViewStyle(.stack)
     }
 }
