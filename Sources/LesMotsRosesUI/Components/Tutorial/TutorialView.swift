@@ -8,9 +8,9 @@
 import SwiftUI
 
 public struct TutorialView: View {
-    let steps: [OnboardingStep]
+    let steps: [TutorialStep]
     
-    public init(steps: [OnboardingStep]) {
+    public init(steps: [TutorialStep]) {
         self.steps = steps
     }
     
@@ -45,17 +45,17 @@ public struct TutorialView: View {
 struct TutorialView_Previews: PreviewProvider {
     static var previews: some View {
         TutorialView(steps: [
-            OnboardingStep(
+            TutorialStep(
                 id: "drag",
                 description: "Place les stickers sur les mots que tu trouves sexistes.",
                 imageName: ""
             ),
-            OnboardingStep(
+            TutorialStep(
                 id: "remove",
                 description: "Si tu veux retirer un sticker, appuie sur celui-ci pour le supprimer.",
                 imageName: ""
             ),
-            OnboardingStep(
+            TutorialStep(
                 id: "drag",
                 description: "Les stickers ajoutés par les autres joueurs seront visibles sur l’écran en face de toi à la fin de l’interaction.",
                 imageName: ""
