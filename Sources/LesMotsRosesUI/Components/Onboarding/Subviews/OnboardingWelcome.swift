@@ -20,7 +20,7 @@ struct OnboardingWelcome: View {
                 isActive: $shouldPassView
             ) { EmptyView() }
             
-            Group {
+            VStack(spacing: 20) {
                 Text("Bienvenue dans la première interaction !")
                     .font(.josefinSansLargeTitle)
                 Text("Déposez votre badge sur le socle pour lancer l’interaction")
