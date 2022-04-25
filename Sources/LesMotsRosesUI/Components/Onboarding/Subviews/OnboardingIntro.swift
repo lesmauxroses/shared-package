@@ -26,6 +26,9 @@ struct OnboardingIntro: View {
             if newStep == 3 {
                 shouldPassView = true
             }
-        }.background(Color.paleBrown100)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+        .background(Color.paleBrown100)
     }
 }

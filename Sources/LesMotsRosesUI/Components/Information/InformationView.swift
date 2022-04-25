@@ -23,6 +23,8 @@ public struct InformationView: View {
     public var body: some View {
         ZStack {
             VStack(spacing: 60) {
+                Spacer()
+                
                 Image(packageResource: "illu-eye", ofType: "svg")
                     .resizable()
                     .blendMode(.normal)
@@ -49,6 +51,8 @@ public struct InformationView: View {
                         }.blendMode(.normal)
                     }
                 }
+                
+                Spacer()
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.purple100)
