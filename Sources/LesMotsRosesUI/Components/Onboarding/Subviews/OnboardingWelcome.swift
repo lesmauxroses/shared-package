@@ -28,6 +28,9 @@ struct OnboardingWelcome: View {
             if newStep == 2 {
                 shouldPassView = true
             }
-        }.background(Color.dark100)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+        .background(Color.dark100)
     }
 }

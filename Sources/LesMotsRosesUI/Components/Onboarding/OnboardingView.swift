@@ -23,3 +23,9 @@ public struct OnboardingView: View {
         }.navigationViewStyle(.stack)
     }
 }
+
+struct OnboardingView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnboardingView(onboardingStep: 1)
+    }
+}
