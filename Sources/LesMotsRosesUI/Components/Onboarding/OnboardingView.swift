@@ -11,6 +11,10 @@ public struct OnboardingView: View {
     @State var onboardingStep: Int
     @StateObject var viewModel = OnboardingViewModel()
     
+    public init(onboardingStep: State<Int>) {
+        self._onboardingStep = onboardingStep
+    }
+    
     public var body: some View {
         NavigationView {
             OnboardingWelcome().environmentObject(viewModel)
@@ -22,6 +26,6 @@ public struct OnboardingView: View {
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView(onboardingStep: 1)
+        OnboardingView(onboardingStep: State(initialValue: 1))
     }
 }
