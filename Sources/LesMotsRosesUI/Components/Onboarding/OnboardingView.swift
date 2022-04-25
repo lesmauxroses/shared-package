@@ -21,8 +21,7 @@ public struct OnboardingView: View {
         }.onChange(of: onboardingStep) { newStep in
             viewModel.onboardingStep = newStep
         }
-        .navigationTitle("")
-        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
         .navigationViewStyle(.stack)
     }
 }
