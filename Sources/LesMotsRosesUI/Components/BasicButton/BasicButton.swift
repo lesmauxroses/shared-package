@@ -10,6 +10,7 @@ import SwiftUI
 public struct BasicButton: View {
     @Binding var isLoading: Bool
     @State var isSelected: Bool
+    let fillWidth: Bool = false
     let type: ButtonType
     let text: String
     let onTapped: () -> Void
@@ -51,6 +52,7 @@ public struct BasicButton: View {
             type: type,
             isSelected: _isSelected)
         )
+        .frame(maxWidth: fillWidth ? .infinity : .none)
     }
 }
 
