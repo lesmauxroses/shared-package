@@ -15,7 +15,7 @@ public struct BasicButtonStyle: ButtonStyle {
     
     public init(
         type: ButtonType = .primary,
-        isSelected: State<Bool>,
+        isSelected: State<Bool> = State(initialValue: false),
         height: CGFloat? = 64,
         fontSize: CGFloat = 24,
         horizontalPadding: CGFloat? = 40
