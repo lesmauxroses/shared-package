@@ -44,7 +44,10 @@ public struct InformationView: View {
                     }
                     
                     if let buttonText = buttonText {
-                        BasicButton(isLoading: .constant(false), type: .secondary, text: buttonText) {
+                        BasicButton(
+                            isLoading: .constant(false),
+                            isSelected: State(initialValue: false),
+                            type: .secondary, text: buttonText) {
                             if let onButtonTapped = onButtonTapped {
                                 onButtonTapped()
                             }

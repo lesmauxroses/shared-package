@@ -37,7 +37,7 @@ struct OnboardingWelcome: View {
                 shouldPassView = true
             }
         }
-        .navigationBarHidden(true)
+        //.navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.dark100)
     }
