@@ -18,6 +18,7 @@ public struct BasicButton: View {
     public init(
         isLoading: Binding<Bool>,
         isSelected: State<Bool>,
+        fillWidth: Bool,
         type: ButtonType = .primary,
         text: String,
         onTapped: @escaping () -> Void
