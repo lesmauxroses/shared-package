@@ -10,7 +10,7 @@ import SwiftUI
 public struct BasicButton: View {
     @Binding var isLoading: Bool
     @State var isSelected: Bool
-    let fillWidth: Bool = false
+    var fillWidth: Bool = false
     let type: ButtonType
     let text: String
     let onTapped: () -> Void
@@ -18,13 +18,14 @@ public struct BasicButton: View {
     public init(
         isLoading: Binding<Bool>,
         isSelected: State<Bool>,
-        fillWidth: Bool,
+        fillWidth: Bool = false,
         type: ButtonType = .primary,
         text: String,
         onTapped: @escaping () -> Void
     ) {
         self._isLoading = isLoading
         self._isSelected = isSelected
+        self.fillWidth = fillWidth
         self.type = type
         self.text = text
         self.onTapped = onTapped
@@ -77,7 +78,6 @@ struct BasicButton_Previews: PreviewProvider {
                     onTapped: {}
                 )
             }
-            
             
             HStack {
                 BasicButton(
