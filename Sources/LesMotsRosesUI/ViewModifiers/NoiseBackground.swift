@@ -18,6 +18,6 @@ public struct NoiseBackground: ViewModifier {
     }
 }
 
-enum NoiseBackgroundType {
+public enum NoiseBackgroundType {
     case dark, medium, light
 }
