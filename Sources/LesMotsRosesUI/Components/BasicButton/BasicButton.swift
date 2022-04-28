@@ -10,14 +10,14 @@ import SwiftUI
 public struct BasicButton: View {
     @Binding var isLoading: Bool
     @State var isSelected: Bool
-    var fillWidth: Bool = false
+    var fillWidth: Bool
     let type: ButtonType
     let text: String
     let onTapped: () -> Void
     
     public init(
-        isLoading: Binding<Bool>,
-        isSelected: State<Bool>,
+        isLoading: Binding<Bool> = .constant(false),
+        isSelected: State<Bool> = .constant(false),
         fillWidth: Bool = false,
         type: ButtonType = .primary,
         text: String,
