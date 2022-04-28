@@ -27,6 +27,7 @@ public struct InformationView: View {
                 
                 Image(packageResource: "illu-eye", ofType: "svg")
                     .resizable()
+                    .frame(maxWidth: 250)
                     .blendMode(.normal)
                 
                 VStack(spacing: 40) {
@@ -60,6 +61,7 @@ public struct InformationView: View {
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.purple100)
             .blendMode(.lighten)
+            .navigationBarHidden(true)
         //            .background(Image("bg-grain"))
             .ignoresSafeArea()
     }

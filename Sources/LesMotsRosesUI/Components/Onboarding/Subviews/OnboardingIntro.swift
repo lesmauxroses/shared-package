@@ -21,7 +21,6 @@ struct OnboardingIntro: View {
             Image("illu_eye_big_dark")
             
             Text("Bonjour et bienvenue la famille Rnard ! ")
-                .font(.josefinSansTitle1)
                 .foregroundColor(Color.dark100)
         }.onChange(of: onboardingViewModel.onboardingStep) { newStep in
             if newStep == 3 {
