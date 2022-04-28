@@ -69,10 +69,8 @@ public struct InformationView: View {
                 Spacer()
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.purple100)
-            .blendMode(.lighten)
+            .modifier(NoiseBackground(type: .medium))
             .navigationBarHidden(true)
-        //            .background(Image("bg-grain"))
             .ignoresSafeArea()
     }
 }
