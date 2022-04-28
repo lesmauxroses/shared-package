@@ -17,7 +17,8 @@ public struct OnboardingView: View {
     
     public var body: some View {
         NavigationView {
-            OnboardingWelcome().environmentObject(viewModel)
+            OnboardingWelcome()
+                .environmentObject(viewModel)
         }.onChange(of: onboardingStep) { newStep in
             viewModel.onboardingStep = newStep
         }
