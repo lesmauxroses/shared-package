@@ -17,7 +17,7 @@ public struct BasicButton: View {
     
     public init(
         isLoading: Binding<Bool> = .constant(false),
-        isSelected: State<Bool> = .constant(false),
+        isSelected: State<Bool>,
         fillWidth: Bool = false,
         type: ButtonType = .primary,
         text: String,
