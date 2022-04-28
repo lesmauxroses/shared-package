@@ -24,9 +24,9 @@ struct OnboardingWelcome: View {
                 Image("illu_eye_big")
                 
                 VStack(spacing: 20) {
-                    Text("Bienvenue dans la première interaction !")
+                    Text("Bienvenue dans la troisème expérience !")
                         .font(.josefinSansLargeTitle)
-                    Text("Déposez votre badge sur le socle pour lancer l’interaction")
+                    Text("Déposez votre badge sur le socle devant vous pour lancer l’interaction")
                         .font(.josefinSansTitle1)
                 }
             }.foregroundColor(Color.paleBrown100)
