@@ -27,7 +27,8 @@ public struct InformationView: View {
                 
                 Image(packageResource: "illu-eye", ofType: "svg")
                     .resizable()
-                    .frame(maxWidth: 250)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 317)
                     .blendMode(.normal)
                 
                 VStack(spacing: 40) {
