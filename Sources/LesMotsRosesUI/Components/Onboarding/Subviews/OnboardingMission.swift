@@ -17,6 +17,7 @@ struct OnboardingMission: View {
             Image("mission_title")
             Image("mission_goals")
         }
+        modifier(NoiseBackground(type: .light))
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
