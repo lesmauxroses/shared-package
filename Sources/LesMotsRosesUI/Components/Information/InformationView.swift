@@ -11,12 +11,20 @@ public struct InformationView: View {
     let title: String?
     let message: String?
     let buttonText: String?
+    @State var showButton: Bool
     var onButtonTapped: (() -> Void)?
     
-    public init(title: String? = nil, message: String? = nil, buttonText: String? = nil, onButtonTapped: (() -> Void)? = nil) {
+    public init(
+        title: String? = nil,
+        message: String? = nil,
+        buttonText: String? = nil,
+        showButton: State<Bool> = State(initialValue: true),
+        onButtonTapped: (() -> Void)? = nil
+    ) {
         self.title = title
         self.message = message
         self.buttonText = buttonText
+        self._showButton = showButton
         self.onButtonTapped = onButtonTapped
     }
     
@@ -54,6 +62,7 @@ public struct InformationView: View {
                                 onButtonTapped()
                             }
                         }.blendMode(.normal)
+                            .opacity(showButton ? 1 : 0)
                     }
                 }
                 
