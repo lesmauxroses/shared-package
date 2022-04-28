@@ -20,6 +20,5 @@ struct OnboardingMission: View {
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
-        .background(Color.paleBrown100)
     }
 }
