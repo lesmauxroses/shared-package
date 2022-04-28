@@ -14,10 +14,12 @@ struct OnboardingMission: View {
     
     var body: some View {
         VStack(spacing: 30) {
-            Image("mission_title")
-            Image("mission_goals")
+            Group {
+                Image("mission_title")
+                Image("mission_goals")
+            }.blendMode(.normal)
         }
-        modifier(NoiseBackground(type: .light))
+        .modifier(NoiseBackground(type: .light))
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
