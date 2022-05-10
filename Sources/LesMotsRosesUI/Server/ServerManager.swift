@@ -21,13 +21,13 @@ public class ServerManager: ObservableObject {
     var currentInteraction: String?
     var currentDevice: String?
     
-    func emitEvent(eventName: String, data: [String:Any]) {
+    public func emitEvent(eventName: String, data: [String:Any]) {
         let socket = manager.defaultSocket
         
         socket.emit(eventName, data)
     }
     
-    func connect(interaction: String, device: String) {
+    public func connect(interaction: String, device: String) {
         print("[ServerManager:connect] Trying to connect")
         let socket = manager.defaultSocket
         
