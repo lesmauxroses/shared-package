@@ -8,7 +8,7 @@
 import SwiftUI
 import SocketIO
 
-class ServerManager: ObservableObject {
+public class ServerManager: ObservableObject {
     public static let instance = ServerManager()
 //    var responseLabel = "Modèle 2"
     
