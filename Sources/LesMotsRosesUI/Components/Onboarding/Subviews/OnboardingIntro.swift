@@ -31,6 +31,6 @@ struct OnboardingIntro: View {
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
-        .modifier(NoiseBackground(.light))
+        .modifier(NoiseBackground(type: .light))
     }
 }
