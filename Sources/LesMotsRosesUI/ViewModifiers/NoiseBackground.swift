@@ -16,9 +16,7 @@ public struct NoiseBackground: ViewModifier {
     
     public func body(content: Content) -> some View {
         content
-            .background(type == .dark ? Color.dark100 : type == .medium ? Color.purple100 : Color.paleBrown100)
-            .blendMode(.lighten)
-            .background(Image("bg-grain").resizable())
+            .background(type == .dark ? Image("bg_noise_dark").resizable() : type == .medium ? Image("bg_noise_purple").resizable() : Image("bg_noise_palebrown").resizable())
     }
 }
 

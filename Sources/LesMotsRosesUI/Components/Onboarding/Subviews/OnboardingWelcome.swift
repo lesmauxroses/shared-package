@@ -37,6 +37,6 @@ struct OnboardingWelcome: View {
         }
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Image("bg_noise_dark"))
+        .modifier(NoiseBackground(.dark))
     }
 }
