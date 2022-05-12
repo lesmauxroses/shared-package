@@ -23,5 +23,6 @@ struct OnboardingMission: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
         .modifier(NoiseBackground(type: .light))
+        .background(Image("bg_noise_palebrown"))
     }
 }

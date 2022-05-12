@@ -24,8 +24,6 @@ struct OnboardingWelcome: View {
                 Image("illu_eye_big")
                 
                 VStack(spacing: 20) {
-                    Text("Bienvenue dans la troisème expérience !")
-                        .font(.josefinSansLargeTitle)
                     Text("Déposez votre badge sur le socle devant vous pour lancer l’interaction")
                         .font(.josefinSansTitle1)
                 }
@@ -39,6 +37,6 @@ struct OnboardingWelcome: View {
         }
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.dark100)
+        .background(Image("bg_noise_dark"))
     }
 }

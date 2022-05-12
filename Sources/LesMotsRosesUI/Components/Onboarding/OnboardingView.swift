@@ -10,6 +10,7 @@ import SwiftUI
 public struct OnboardingView: View {
     @State var onboardingStep: Int
     var goalsImageName: String? = nil
+    var familyName: String? = nil
     @StateObject var viewModel = OnboardingViewModel()
     
     public init(onboardingStep: State<Int>, goalsImageName: String? = nil) {
