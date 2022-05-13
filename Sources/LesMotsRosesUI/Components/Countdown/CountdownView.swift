@@ -8,16 +8,20 @@
 import SwiftUI
 
 public struct CountdownView: View {
-    //@StateObject var viewModel = CountdownViewModel()
+    @StateObject var viewModel = CountdownViewModel()
+    
+    public init() {}
     
     public var body: some View {
+        let size: CGFloat = 472
+        
         VStack {
             ZStack {
                 ZStack {
-                    Text("")
+                    Text("\(viewModel.remainingTime)")
                         .font(.system(size: 300))
                 }
-                .frame(width: 472, height: 472)
+                .frame(width: size, height: size)
                 .background(Color.purple100)
                 .clipShape(Circle())
             }
@@ -29,7 +33,7 @@ public struct CountdownView: View {
         .modifier(NoiseBackground(type: .dark))
         .ignoresSafeArea()
         .onAppear {
-            //viewModel.launchTimer()
+            viewModel.launchTimer()
         }
     }
 }
