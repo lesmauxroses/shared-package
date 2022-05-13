@@ -9,8 +9,11 @@ import SwiftUI
 
 public struct CountdownView: View {
     @StateObject var viewModel = CountdownViewModel()
+    var onFinished: () -> Void
     
-    public init() {}
+    public init(onFinished: @escaping () -> Void) {
+        self.onFinished = onFinished
+    }
     
     public var body: some View {
         let size: CGFloat = 472
@@ -33,14 +36,16 @@ public struct CountdownView: View {
         .modifier(NoiseBackground(type: .dark))
         .ignoresSafeArea()
         .onAppear {
-            viewModel.launchTimer()
+            viewModel.launchTimer(onFinished: {
+                onFinished()
+            })
         }
     }
 }
 
 struct CountdownView_Previews: PreviewProvider {
     static var previews: some View {
-        CountdownView()
+        CountdownView(onFinished: {})
             .previewLayout(.fixed(width: 1920, height: 1080))
     }
 }
