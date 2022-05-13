@@ -15,7 +15,10 @@ public struct OnboardingView: View {
     
     @StateObject var viewModel = OnboardingViewModel()
     
-    public init(onboardingStep: State<Int>, goalsImageName: String? = nil) {
+    public init(
+        onboardingStep: State<Int>,
+        goalsImageName: String? = nil
+    ) {
         self._onboardingStep = onboardingStep
         self.goalsImageName = goalsImageName
     }
