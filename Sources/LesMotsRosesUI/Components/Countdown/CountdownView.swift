@@ -11,15 +11,13 @@ public struct CountdownView: View {
     @StateObject var viewModel = CountdownViewModel()
     
     public var body: some View {
-        let size: CGFloat = 472
-        
         VStack {
             ZStack {
                 ZStack {
                     Text("\(viewModel.remainingTime)")
                         .font(.system(size: 300))
                 }
-                .frame(width: size, height: size)
+                .frame(width: 472, height: 472)
                 .background(Color.purple100)
                 .clipShape(Circle())
             }
