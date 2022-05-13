@@ -7,11 +7,30 @@
 
 import SwiftUI
 
-struct CountdownView: View {
+public struct CountdownView: View {
     @StateObject var viewModel = CountdownViewModel()
     
-    var body: some View {
-        Text(viewModel.remainingTime)
+    public var body: some View {
+        let size: CGFloat = 472
+        
+        VStack {
+            ZStack {
+                ZStack {
+                    Text("\(viewModel.remainingTime)")
+                }
+                .clipShape(Circle())
+                .frame(width: size, height: size)
+            }
+        }
+        #if os(iOS)
+            .navigationBarHidden(true)
+        #endif
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .modifier(NoiseBackground(type: .dark))
+        .ignoresSafeArea()
+        .onAppear {
+            viewModel.launchTimer()
+        }
     }
 }
 

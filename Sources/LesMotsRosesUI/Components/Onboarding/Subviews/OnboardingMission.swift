@@ -19,7 +19,9 @@ struct OnboardingMission: View {
                 Image("mission_goals")
             }.blendMode(.normal)
         }
-        .navigationBarHidden(true)
+        #if os(iOS)
+            .navigationBarHidden(true)
+        #endif
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
         .modifier(NoiseBackground(type: .light))

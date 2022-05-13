@@ -70,7 +70,9 @@ public struct InformationView: View {
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .modifier(NoiseBackground(type: .medium))
-            .navigationBarHidden(true)
+            #if os(iOS)
+                .navigationBarHidden(true)
+            #endif
             .ignoresSafeArea()
     }
 }

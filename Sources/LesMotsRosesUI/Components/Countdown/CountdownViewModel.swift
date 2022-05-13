@@ -8,5 +8,16 @@
 import SwiftUI
 
 class CountdownViewModel: ObservableObject {
-    @Published var remainingTime: String = "weshhh"
+    @Published var remainingTime: Int = 3
+    
+    func launchTimer() {
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (Timer) in
+            if self.remainingTime > 0 {
+                print ("\(self.remainingTime) seconds")
+                self.remainingTime -= 1
+            } else {
+                Timer.invalidate()
+            }
+        }
+    }
 }

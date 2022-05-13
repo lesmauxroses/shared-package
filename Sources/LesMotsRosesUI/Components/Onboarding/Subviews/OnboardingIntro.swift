@@ -28,7 +28,9 @@ struct OnboardingIntro: View {
                 shouldPassView = true
             }
         }
-        .navigationBarHidden(true)
+        #if os(iOS)
+           .navigationBarHidden(true)
+        #endif
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
         .modifier(NoiseBackground(type: .light))

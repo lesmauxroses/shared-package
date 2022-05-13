@@ -27,8 +27,10 @@ public struct OnboardingView: View {
         }.onChange(of: onboardingStep) { newStep in
             viewModel.onboardingStep = newStep
         }
-        .navigationBarHidden(true)
-        .navigationViewStyle(.stack)
+        #if os(iOS)
+            .navigationBarHidden(true)
+            .navigationViewStyle(.stack)
+        #endif
     }
 }
 
