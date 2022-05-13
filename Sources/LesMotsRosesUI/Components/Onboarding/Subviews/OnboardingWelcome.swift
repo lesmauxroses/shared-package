@@ -21,7 +21,7 @@ struct OnboardingWelcome: View {
             ) { EmptyView() }
             
             VStack(spacing: 150) {
-                Image("illu_eye_big")
+                Image("interaction_logo")
                 
                 VStack(spacing: 20) {
                     Text("Déposez votre badge sur le socle devant vous pour lancer l’interaction")
