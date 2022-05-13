@@ -17,9 +17,11 @@ public struct CountdownView: View {
             ZStack {
                 ZStack {
                     Text("\(viewModel.remainingTime)")
+                        .font(.system(size: 300))
                 }
-                .clipShape(Circle())
                 .frame(width: size, height: size)
+                .background(Color.purple100)
+                .clipShape(Circle())
             }
         }
         #if os(iOS)
@@ -37,6 +39,7 @@ public struct CountdownView: View {
 struct CountdownView_Previews: PreviewProvider {
     static var previews: some View {
         CountdownView()
+            .previewLayout(.fixed(width: 1920, height: 1080))
     }
 }
 
