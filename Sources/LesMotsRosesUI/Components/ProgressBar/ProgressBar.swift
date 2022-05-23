@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgressBar: View {
+public struct ProgressBar: View {
     @StateObject var viewModel = ProgressBarViewModel()
     var totalTime: Double = 0
     
