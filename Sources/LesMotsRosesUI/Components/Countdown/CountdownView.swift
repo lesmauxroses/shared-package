@@ -9,7 +9,8 @@ import SwiftUI
 
 public struct CountdownView: View {
     @StateObject var viewModel = CountdownViewModel()
-    @State var circleSize: CGFloat = 472
+    @State var circleScale: CGFloat = 1
+    let circleSize: CGFloat = 472
     var onFinished: () -> Void
     
     public init(onFinished: @escaping () -> Void) {
@@ -29,6 +30,7 @@ public struct CountdownView: View {
 //                            .font(.custom(TanDaisy.bold.rawValue, size: 300))
                     }
                     .frame(width: circleSize, height: circleSize)
+                    .scaleEffect(circleScale)
                     .background(Color.purple100)
                     .clipShape(Circle())
                 }
@@ -43,7 +45,7 @@ public struct CountdownView: View {
         .onChange(of: viewModel.remainingTime, perform: { newValue in
             if newValue == 1 {
                 withAnimation() {
-                    circleSize = 0
+                    circleScale = 0
                 }
             }
         })
