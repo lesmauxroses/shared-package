@@ -18,20 +18,22 @@ public struct CountdownView: View {
     public var body: some View {
         let size: CGFloat = 472
         
-        ZStack {
+        ZStack(alignnment: .trailing) {
             Image("bgpattern_countdown")
             
-            ZStack {
+            ZStack(alignment: .center) {
                 ZStack {
-                    //Text("\(viewModel.remainingTime)")
-                    Text("E")
-                        .foregroundColor(Color.white)
-                        .font(.custom(TanDaisy.bold.rawValue, size: 300))
+                    ZStack {
+                        //Text("\(viewModel.remainingTime)")
+                        Text("E")
+                            .foregroundColor(Color.white)
+                            .font(.custom(TanDaisy.bold.rawValue, size: 300))
+                    }
+                    .frame(width: size, height: size)
+                    .background(Color.purple100)
+                    .clipShape(Circle())
                 }
-                .frame(width: size, height: size)
-                .background(Color.purple100)
-                .clipShape(Circle())
-            }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         #if os(iOS)
         .navigationBarHidden(true)
