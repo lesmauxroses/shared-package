@@ -9,6 +9,10 @@ import Foundation
 
 import SwiftUI
 
+public enum TanDaisy: String, CaseIterable {
+    case tanDaisy = "TanDaisy"
+}
+
 public enum JosefinSans: String, CaseIterable {
     case medium = "JosefinSans-Medium"
     case semiBold = "JosefinSans-SemiBold"

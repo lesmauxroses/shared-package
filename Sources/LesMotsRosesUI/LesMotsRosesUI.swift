@@ -6,6 +6,10 @@ public struct LesMotsRosesUI {
        JosefinSans.allCases.forEach {
            registerFont(bundle: .module, fontName: $0.rawValue, fontExtension: "ttf")
        }
+        
+        TanDaisy.allCases.forEach {
+            registerFont(bundle: .module, fontName: $0.rawValue, fontExtension: "ttf")
+        }
     }
     
     fileprivate static func registerFont(bundle: Bundle, fontName: String, fontExtension: String) {
