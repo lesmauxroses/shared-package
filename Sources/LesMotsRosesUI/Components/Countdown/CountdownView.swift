@@ -18,9 +18,12 @@ public struct CountdownView: View {
     public var body: some View {
         let size: CGFloat = 472
         
-        VStack {
+        ZStack {
+            Image("bgpattern_countdown")
+            
             ZStack {
                 ZStack {
+                    //Text("\(viewModel.remainingTime)")
                     Text("E")
                         .foregroundColor(Color.white)
                         .font(.custom(TanDaisy.bold.rawValue, size: 300))
@@ -31,7 +34,7 @@ public struct CountdownView: View {
             }
         }
         #if os(iOS)
-            .navigationBarHidden(true)
+        .navigationBarHidden(true)
         #endif
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(NoiseBackground(type: .dark))
@@ -41,6 +44,7 @@ public struct CountdownView: View {
                 onFinished()
             })
         }
+        
     }
 }
 
