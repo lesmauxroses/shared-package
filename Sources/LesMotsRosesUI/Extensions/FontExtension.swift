@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 public enum TanDaisy: String, CaseIterable {
-    case tanDaisy = "TanDaisy"
+    case bold = "TanDaisy"
 }
 
 public enum JosefinSans: String, CaseIterable {
