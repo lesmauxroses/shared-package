@@ -13,3 +13,19 @@ public extension Color {
     static var paleBrown100: Color { Color(#function, bundle: Bundle.module) }
     static var purple100: Color { Color(#function, bundle: Bundle.module) }
 }
+
+extension Color {
+    struct MainTheme {
+        static var gradients = [
+            "gradientOrangePurple": LinearGradient(
+                gradient: Gradient(colors: [Color.orange, Color.purple100]),
+                startPoint: .topLeading,
+                endPoint: .topTrailing
+            )
+        ]
+        
+        static func getGradientByName(name: String) -> LinearGradient? {
+            return self.gradients[name]
+        }
+    }
+}
