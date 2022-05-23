@@ -21,7 +21,8 @@ public struct CountdownView: View {
         VStack {
             ZStack {
                 ZStack {
-                    Text("\(viewModel.remainingTime)")
+                    Text("E")
+                        .foregroundColor(Color.white)
                         .font(.custom(TanDaisy.bold.rawValue, size: 300))
                 }
                 .frame(width: size, height: size)
