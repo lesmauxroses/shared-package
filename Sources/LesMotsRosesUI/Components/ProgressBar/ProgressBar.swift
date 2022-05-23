@@ -17,7 +17,7 @@ public struct ProgressBar: View {
         self.totalTime  = totalTime
     }
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             Circle()
                 .stroke(lineWidth: 6.0)
