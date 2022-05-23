@@ -30,9 +30,9 @@ public struct CountdownView: View {
 //                            .font(.custom(TanDaisy.bold.rawValue, size: 300))
                     }
                     .frame(width: circleSize, height: circleSize)
-                    .scaleEffect(circleScale)
                     .background(Color.purple100)
                     .clipShape(Circle())
+                    .scaleEffect(circleScale)
                 }
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
