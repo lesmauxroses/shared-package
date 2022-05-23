@@ -18,7 +18,7 @@ public struct CountdownView: View {
     public var body: some View {
         let size: CGFloat = 472
         
-        ZStack(alignnment: .trailing) {
+        ZStack(alignment: .trailing) {
             Image("bgpattern_countdown")
             
             ZStack(alignment: .center) {
