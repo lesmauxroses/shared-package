@@ -10,6 +10,12 @@ import SwiftUI
 public struct MissionSuccessView: View {
     let qrCodeNumber: Int
     
+    public init(
+        qrCodeNumber: Int
+    ) {
+        self.qrCodeNumber = qrCodeNumber
+    }
+    
     public var body: some View {
         VStack {
             Image("title_missionsuccess")
