@@ -14,7 +14,7 @@ public extension Color {
     static var purple100: Color { Color(#function, bundle: Bundle.module) }
 }
 
-extension Color {
+public extension Color {
     struct MainTheme {
         static var gradients = [
             "gradientOrangePurple": LinearGradient(
