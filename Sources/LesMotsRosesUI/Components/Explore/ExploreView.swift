@@ -12,15 +12,27 @@ public struct ExploreView: View {
     ) {}
     
     public var body: some View {
-        VStack {
-            Image("title_explore")
-            
-            Text("les décos autour de vous avant de passer à la suite")
-                .foregroundColor(Color.paleBrown100)
-            
+        VStack(spacing: 50) {
             VStack {
+                Image("title_explore")
+                
+                Text("les décors autour de vous avant de passer à la suite")
+                    .foregroundColor(Color.paleBrown100)
+                    .font(.custom("JosefinSans-Bold", size: 38))
+            }
+            
+            VStack(spacing: 20) {
+                Text("02 : 59")
+                    .font(.custom("JosefinSans-Medium", size: 88))
+                    .foregroundColor(Color.paleBrown100)
+                    .padding(.horizontal, 40)
+                    .padding(.vertical, 68)
+                    .overlay(RoundedRectangle(cornerRadius: 44)
+                                .strokeBorder(Color.purple100, lineWidth: 5))
+                
                 HStack {
                     Text("Attention au chrono !")
+                        .font(.custom("JosefinSans-SemiBold", size: 32))
                         .foregroundColor(Color.paleBrown100)
                 }
             }

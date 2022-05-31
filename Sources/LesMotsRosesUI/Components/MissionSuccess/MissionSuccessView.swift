@@ -17,16 +17,16 @@ public struct MissionSuccessView: View {
     }
     
     public var body: some View {
-        VStack {
+        VStack(spacing: 115) {
             Image("title_missionsuccess")
             
-            HStack(spacing: 50) {
+            HStack(spacing: 30) {
                 Image("illu_qrcode\(qrCodeNumber)")
                 
                 Text("Bravo vous avez gagné un morceau de QRCode !")
                     .font(.josefinSansTitle1)
                     .foregroundColor(Color.dark100)
-            }.frame(maxWidth: 800)
+            }.frame(maxWidth: 820)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(NoiseBackground(type: .light))
