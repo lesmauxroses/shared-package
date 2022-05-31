@@ -16,7 +16,7 @@ public extension Color {
 
 public extension Color {
     struct MainTheme {
-        static var gradients = [
+        public static var gradients = [
             "gradientOrangePurple": LinearGradient(
                 gradient: Gradient(colors: [Color.orange, Color.purple100]),
                 startPoint: .topLeading,
@@ -24,7 +24,7 @@ public extension Color {
             )
         ]
         
-        static func getGradientByName(name: String) -> LinearGradient? {
+        public static func getGradientByName(name: String) -> LinearGradient? {
             return self.gradients[name]
         }
     }
