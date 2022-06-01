@@ -9,36 +9,48 @@ import SwiftUI
 
 public struct OnboardingView: View {
     @State var onboardingStep: Int
-    var goalsImageName: String? = nil
-    var missionTitleImageName: String?
     var familyName: String? = nil
-    
-    @StateObject var viewModel = OnboardingViewModel()
+    var missionNumber: Int? = nil
+    let missionText: String
+    let timeAvailable: Int
     
     public init(
         onboardingStep: State<Int>,
-        goalsImageName: String? = nil
+        missionNumber: Int?,
+        missionText: String,
+        timeAvailable: Int
     ) {
         self._onboardingStep = onboardingStep
-        self.goalsImageName = goalsImageName
+        self.missionNumber = missionNumber
+        self.missionText = missionText
+        self.timeAvailable = timeAvailable
     }
     
     public var body: some View {
-        NavigationView {
+        switch onboardingStep {
+        case 1:
+            OnboardingIntro()
+        case 2:
             OnboardingWelcome()
-                .environmentObject(viewModel)
-        }.onChange(of: onboardingStep) { newStep in
-            viewModel.onboardingStep = newStep
+        case 3:
+            OnboardingMission(
+                missionNumber: missionNumber,
+                missionText: missionText,
+                timeAvailable: timeAvailable
+            )
+        default:
+            EmptyView()
         }
-        #if os(iOS)
-            .navigationBarHidden(true)
-            .navigationViewStyle(.stack)
-        #endif
     }
 }
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView(onboardingStep: State(initialValue: 1))
+        OnboardingView(
+            onboardingStep: State(initialValue: 1),
+            missionNumber: 1,
+            missionText: "Analysez la présence des femmes dans un film ou une série, à partir du test de Bechdel",
+            timeAvailable: 5
+        )
     }
 }

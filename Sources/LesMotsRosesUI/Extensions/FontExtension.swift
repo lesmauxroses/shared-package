@@ -41,6 +41,8 @@ public extension Font {
         custom(font.rawValue, size: style.size, relativeTo: style)
     }
 
+    static let josefinBody = custom(.medium, relativeTo: .title2)
+    static let josefinInfo = custom(.medium, relativeTo: .title)
     static let josefinSans = custom(.medium, relativeTo: .body)
     static let josefinSansLargeTitle = custom(.bold, relativeTo: .largeTitle)
     static let josefinSansTitle1 = custom(.semiBold, relativeTo: .title)

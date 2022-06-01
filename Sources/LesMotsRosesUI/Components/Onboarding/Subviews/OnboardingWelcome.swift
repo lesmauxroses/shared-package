@@ -8,17 +8,9 @@
 import SwiftUI
 
 struct OnboardingWelcome: View {
-    @EnvironmentObject var onboardingViewModel: OnboardingViewModel
-    @State private var shouldPassView = false
-    
     var body: some View {
         VStack {
             Spacer()
-            
-            NavigationLink(
-                destination: OnboardingIntro().environmentObject(onboardingViewModel),
-                isActive: $shouldPassView
-            ) { EmptyView() }
             
             VStack(spacing: 150) {
                 Image("interaction_logo")
@@ -30,14 +22,7 @@ struct OnboardingWelcome: View {
             }.foregroundColor(Color.paleBrown100)
             
             Spacer()
-        }.onChange(of: onboardingViewModel.onboardingStep) { newStep in
-            if newStep == 2 {
-                shouldPassView = true
-            }
         }
-        #if os(iOS)
-            .navigationBarHidden(true)
-        #endif
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(NoiseBackground(type: .dark))
     }
