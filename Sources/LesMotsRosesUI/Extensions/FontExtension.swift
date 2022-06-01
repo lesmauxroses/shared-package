@@ -48,11 +48,3 @@ public extension Font {
     static let josefinSansTitle1 = custom(.semiBold, relativeTo: .title)
     static let jetBrainsMonoTitle2 = custom(.medium, relativeTo: .title2)
 }
-
-public extension Font {
-    private static func custom(_ font: TanDaisy, relativeTo style: Font.TextStyle) -> Font {
-        custom(font.rawValue, size: style.size, relativeTo: style)
-    }
-
-    static let tanDaisyTitle = custom(.bold, relativeTo: .largeTitle)
-}
