@@ -29,9 +29,9 @@ public struct OnboardingView: View {
     public var body: some View {
         switch onboardingStep {
         case 1:
-            OnboardingIntro()
-        case 2:
             OnboardingWelcome()
+        case 2:
+            OnboardingIntro()
         case 3:
             OnboardingMission(
                 missionNumber: missionNumber,
