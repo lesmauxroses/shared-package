@@ -7,12 +7,22 @@
 
 import SwiftUI
 
-struct OnboardingMission: View {
+public struct OnboardingMission: View {
     var missionNumber: Int? = nil
     let missionText: String
     let timeAvailable: Int
     
-    var body: some View {
+    public init(
+        missionNumber: Int?,
+        missionText: String,
+        timeAvailable: Int
+    ) {
+        self.missionNumber = missionNumber
+        self.missionText = missionText
+        self.timeAvailable = timeAvailable
+    }
+    
+    public var body: some View {
         VStack(spacing: 30) {
             HStack {
                 Image("mission_title")
