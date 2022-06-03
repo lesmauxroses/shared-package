@@ -1,5 +1,5 @@
 //
-//  ProgressBar.swift
+//  CircleProgressBar.swift
 //  
 //
 //  Created by Killian Sowa on 23/05/2022.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-public struct ProgressBar: View {
-    @StateObject var viewModel = ProgressBarViewModel()
+public struct CircleProgressBarView: View {
+    @StateObject var viewModel = CircleProgressBarViewModel()
     
     @State var step: Int
     var totalTime: Double = 0
@@ -55,11 +55,11 @@ public struct ProgressBar: View {
     }
 }
 
-struct ProgressBar_Previews: PreviewProvider {
+struct CircleProgressBarView_Previews: PreviewProvider {
     @State var step: Int
     
     static var previews: some View {
-        ProgressBar(
+        CircleProgressBarView(
             step: State(initialValue: 0),
             totalTime: 20,
             onFinished: { step in

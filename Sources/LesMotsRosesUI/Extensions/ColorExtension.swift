@@ -18,7 +18,12 @@ public extension Color {
     struct MainTheme {
         public static var gradients = [
             "gradientOrangePurple": LinearGradient(
-                gradient: Gradient(colors: [Color.orange, Color.purple100]),
+                gradient: Gradient(colors: [Color.orange100, Color.purple100]),
+                startPoint: .topLeading,
+                endPoint: .topTrailing
+            ),
+            "gradientPurpleOrange": LinearGradient(
+                gradient: Gradient(colors: [Color.purple100, Color.orange100]),
                 startPoint: .topLeading,
                 endPoint: .topTrailing
             )

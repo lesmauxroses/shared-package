@@ -1,5 +1,5 @@
 //
-//  ProgressBarViewModel.swift
+//  CircleProgressBarViewModel.swift
 //  
 //
 //  Created by Killian Sowa on 23/05/2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProgressBarViewModel: ObservableObject {
+class CircleProgressBarViewModel: ObservableObject {
     @Published var remainingTime: Double = 0
     var totalTime: Double = 0
     
