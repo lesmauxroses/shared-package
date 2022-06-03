@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InstructionView: View {
+public struct InstructionView: View {
     let text: String
     let type: InstructionType
     
@@ -19,7 +19,7 @@ struct InstructionView: View {
         self.type = type
     }
     
-    var body: some View {
+    public var body: some View {
         let color = type == .light ? Color.paleBrown100 : Color.dark100
         
         Text(text)
