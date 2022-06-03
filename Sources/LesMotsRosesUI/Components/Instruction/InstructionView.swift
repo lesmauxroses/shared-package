@@ -11,6 +11,14 @@ struct InstructionView: View {
     let text: String
     let type: InstructionType
     
+    public init(
+        text: String,
+        type: InstructionType
+    ) {
+        self.text = text
+        self.type = type
+    }
+    
     var body: some View {
         let color = type == .light ? Color.paleBrown100 : Color.dark100
         
@@ -33,6 +41,6 @@ struct InstructionView_Previews: PreviewProvider {
 }
 
 
-enum InstructionType: String {
+public enum InstructionType: String {
     case light, dark
 }
