@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 public enum TanDaisy: String, CaseIterable {
-    case bold = "TanDaisy"
+    case tanDaisy = "TanDaisy"
 }
 
 public enum JosefinSans: String, CaseIterable {
@@ -47,4 +47,12 @@ public extension Font {
     static let josefinSansLargeTitle = custom(.bold, relativeTo: .largeTitle)
     static let josefinSansTitle1 = custom(.semiBold, relativeTo: .title)
     static let jetBrainsMonoTitle2 = custom(.medium, relativeTo: .title2)
+}
+
+public extension Font {
+    private static func custom(_ font: TanDaisy, relativeTo style: Font.TextStyle) -> Font {
+        custom(font.rawValue, size: style.size, relativeTo: style)
+    }
+
+    static let tanDaisy = custom(.tanDaisy, relativeTo: .largeTitle)
 }

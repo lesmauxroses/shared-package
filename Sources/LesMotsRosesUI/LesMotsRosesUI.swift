@@ -3,9 +3,9 @@ import SwiftUI
 
 public struct LesMotsRosesUI {
     public static func registerFonts() {
-       JosefinSans.allCases.forEach {
-           registerFont(bundle: .module, fontName: $0.rawValue, fontExtension: "ttf")
-       }
+        JosefinSans.allCases.forEach {
+            registerFont(bundle: .module, fontName: $0.rawValue, fontExtension: "ttf")
+        }
         
         TanDaisy.allCases.forEach {
             registerFont(bundle: .module, fontName: $0.rawValue, fontExtension: "ttf")
