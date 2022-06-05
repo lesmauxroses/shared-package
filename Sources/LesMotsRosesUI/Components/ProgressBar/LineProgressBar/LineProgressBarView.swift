@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LineProgressBarView: View {
+public struct LineProgressBarView: View {
     @StateObject var viewModel = LineProgressBarViewModel()
     
     let totalTime: Double
@@ -26,7 +26,7 @@ struct LineProgressBarView: View {
         self.onFinished = onFinished
     }
     
-    var body: some View {
+    public var body: some View {
         HStack(spacing: 30) {
             HStack {
                 VStack {}
