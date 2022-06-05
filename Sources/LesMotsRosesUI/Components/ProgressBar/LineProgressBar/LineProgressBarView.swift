@@ -28,11 +28,14 @@ public struct LineProgressBarView: View {
     
     public var body: some View {
         let remainingTime = totalTime - currentTime
+        let progressionWidth = currentTime/totalTime*width
         
         HStack(spacing: 30) {
             HStack {
                 VStack {}
-                .frame(width: currentTime/totalTime*width, height: height)
+                .frame(width: progressionWidth, height: height)
+                .transition(.scale)
+                .animation(.easeInOut, value: progressionWidth)
                 .background(Color.MainTheme.getGradientByName(name: "gradientPurpleOrange")!)
                 
                 Spacer(minLength: 0)

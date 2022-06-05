@@ -15,9 +15,6 @@ class CircleProgressBarViewModel: ObservableObject {
         self.remainingTime = totalTime
         self.totalTime = totalTime
         
-        print("timer launched")
-        print("step \(step)")
-        
         Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { (Timer) in
             if self.remainingTime > 0 {
                 print ("\(self.remainingTime) seconds")
