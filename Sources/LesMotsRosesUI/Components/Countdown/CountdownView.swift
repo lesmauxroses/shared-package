@@ -25,9 +25,7 @@ public struct CountdownView: View {
             ZStack(alignment: .center) {
                 ZStack {
                     ZStack {
-                        Image("countdown_\(viewModel.remainingTime)")
-//                            .foregroundColor(Color.white)
-//                            .font(.custom(TanDaisy.bold.rawValue, size: 300))
+                        Image("ic_\(viewModel.remainingTime)")
                     }
                     .frame(width: circleSize, height: circleSize)
                     .background(Color.purple100)
