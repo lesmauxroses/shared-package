@@ -27,17 +27,22 @@ struct LineProgressBarView: View {
     }
     
     var body: some View {
-        HStack {
-            ZStack(alignment: .leading) {
-                HStack {}
-                .frame(width: width - 100, height: height)
+        HStack(spacing: 30) {
+            HStack {
+                VStack {}
+                .frame(width: width, height: height)
                 .background(Color.MainTheme.getGradientByName(name: "gradientPurpleOrange")!)
+                
+                Spacer(minLength: 0)
             }
             .frame(width: width, height: height)
             .background(Color.paleBrown100)
             .cornerRadius(18)
             
-            Text("")
+            Text("\(viewModel.remainingTime)")
+                .font(.custom("JosefinSans-Bold", size: 50))
+                .foregroundColor(Color.paleBrown100)
+                .fixedSize(horizontal: true, vertical: false)
         }
 
     }

@@ -18,7 +18,6 @@ class LineProgressBarViewModel: ObservableObject {
         
         Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { (Timer) in
             if self.remainingTime > 0 {
-                print ("\(self.remainingTime) seconds")
                 self.remainingTime -= 0.2
             } else {
                 Timer.invalidate()
