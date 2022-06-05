@@ -23,15 +23,10 @@ public struct CountdownView: View {
             Image("bgpattern_countdown")
             
             ZStack(alignment: .center) {
-                ZStack {
-                    ZStack {
-                        Image("ic_\(viewModel.remainingTime)")
-                    }
-                    .frame(width: circleSize, height: circleSize)
-                    .background(Color.purple100)
-                    .clipShape(Circle())
-                    .scaleEffect(circleScale)
-                }
+                NumberView(
+                    number: viewModel.remainingTime,
+                    type: .big
+                )
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         #if os(iOS)

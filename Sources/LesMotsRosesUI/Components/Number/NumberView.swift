@@ -8,24 +8,24 @@
 import SwiftUI
 
 public struct NumberView: View {
-    let number: Int
+    var number: Int
     var isSuccess: Bool = true
     let type: NumberType
     
     public var circleSize: CGFloat {
         switch type {
         case .little:
-            return 472
+            return 80
         case .medium:
             return 134
         case .big:
-            return 80
+            return 472
         }
     }
     
     public init(
         number: Int,
-        isSuccess: Bool,
+        isSuccess: Bool = true,
         type: NumberType
     ) {
         self.number = number
@@ -47,4 +47,11 @@ public struct NumberView: View {
 
 public enum NumberType: String {
     case little, medium, big
+}
+
+struct NumnerView_Previews: PreviewProvider {
+    static var previews: some View {
+        NumberView(number: 1, isSuccess: true, type: .big)
+            .previewLayout(.fixed(width: 1920, height: 1080))
+    }
 }
