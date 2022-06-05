@@ -8,29 +8,31 @@
 import SwiftUI
 
 public struct LineProgressBarView: View {
-    @StateObject var viewModel = LineProgressBarViewModel()
-    
     let totalTime: Double
+    var currentTime: Double
     let width: CGFloat
-    let onFinished: (_ step: Int) -> Void
     let height: CGFloat = 60
+    var showTimeText: Bool = true
     
     public init(
-        totalTime: Double,
+        totalTime: CGFloat,
+        currentTime: CGFloat,
         width: CGFloat,
-        onFinished: @escaping (_ step: Int) -> Void
-        
+        showTimeText: Bool = true
     ) {
         self.totalTime = totalTime
+        self.currentTime = currentTime
         self.width = width
-        self.onFinished = onFinished
+        self.showTimeText = showTimeText
     }
     
     public var body: some View {
+        let remainingTime = totalTime - currentTime
+        
         HStack(spacing: 30) {
             HStack {
                 VStack {}
-                .frame(width: width, height: height)
+                .frame(width: currentTime/totalTime*width, height: height)
                 .background(Color.MainTheme.getGradientByName(name: "gradientPurpleOrange")!)
                 
                 Spacer(minLength: 0)
@@ -39,10 +41,12 @@ public struct LineProgressBarView: View {
             .background(Color.paleBrown100)
             .cornerRadius(18)
             
-            Text("\(viewModel.remainingTime)")
-                .font(.custom("JosefinSans-Bold", size: 50))
-                .foregroundColor(Color.paleBrown100)
-                .fixedSize(horizontal: true, vertical: false)
+            if showTimeText {
+                Text("\(remainingTime.asMinutesSeconds(style: .positional))")
+                    .font(.custom("JosefinSans-Bold", size: 50))
+                    .foregroundColor(Color.paleBrown100)
+                    .fixedSize(horizontal: true, vertical: false)
+            }
         }
 
     }
@@ -52,10 +56,8 @@ struct LineProgressBarView_Previews: PreviewProvider {
     static var previews: some View {
         LineProgressBarView(
             totalTime: 20,
-            width: 734,
-            onFinished: { step in
-                
-            }
+            currentTime: 12,
+            width: 734
         )
     }
 }
