@@ -9,21 +9,15 @@ import SwiftUI
 
 public struct InformationView: View {
     let title: String?
-    let message: String?
-    let buttonText: String?
     @State var showButton: Bool
     var onButtonTapped: (() -> Void)?
     
     public init(
         title: String? = nil,
-        message: String? = nil,
-        buttonText: String? = nil,
         showButton: State<Bool> = State(initialValue: true),
         onButtonTapped: (() -> Void)? = nil
     ) {
         self.title = title
-        self.message = message
-        self.buttonText = buttonText
         self._showButton = showButton
         self.onButtonTapped = onButtonTapped
     }
@@ -33,54 +27,34 @@ public struct InformationView: View {
             VStack(spacing: 60) {
                 Spacer()
                 
-                Image(packageResource: "illu-eye", ofType: "svg")
+                Image("illu_eye_big_dark")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 317)
-                    .blendMode(.normal)
+                    .frame(maxWidth: 347)
                 
                 VStack(spacing: 40) {
                     if let title = title {
                         Text(title)
-                            .foregroundColor(Color.white)
-                            .font(.josefinSansLargeTitle)
-                    }
-                    
-                    if let message = message {
-                        Text(message)
-                            .foregroundColor(Color.white)
-                            .font(.josefinSansTitle1)
-                            .multilineTextAlignment(.center)
-                    }
-                    
-                    if let buttonText = buttonText {
-                        BasicButton(
-                            isLoading: .constant(false),
-                            isSelected: State(initialValue: false),
-                            type: .secondary, text: buttonText) {
-                            if let onButtonTapped = onButtonTapped {
-                                onButtonTapped()
-                            }
-                        }.blendMode(.normal)
-                            .opacity(showButton ? 1 : 0)
+                            .foregroundColor(Color.dark100)
+                            .font(.custom("JosefinSans-Bold", size: 48))
                     }
                 }
                 
                 Spacer()
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .modifier(NoiseBackground(type: .medium))
-            #if os(iOS)
-                .navigationBarHidden(true)
-            #endif
+            .modifier(NoiseBackground(type: .light))
             .ignoresSafeArea()
     }
 }
 
 struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
-        InformationView(title: "On attend pas Patrick ?", message: "Patrick est très important pour ce projet", buttonText: "Attendre Patrick", onButtonTapped: {
-            print("J'attends Patrick")
-        })
+        InformationView(
+            title: "On attend pas Patrick ?",
+            onButtonTapped: {
+                print("J'attends Patrick")
+            }
+        )
     }
 }
