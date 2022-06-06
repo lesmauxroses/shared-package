@@ -37,6 +37,7 @@ public struct InformationView: View {
                         Text(title)
                             .foregroundColor(Color.dark100)
                             .font(.custom("JosefinSans-Bold", size: 48))
+                            .multilineTextAlignment(TextAlignment.center)
                     }
                 }
                 
