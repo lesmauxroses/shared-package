@@ -14,14 +14,14 @@ struct OnboardingWelcome: View {
             
             VStack(spacing: 150) {
                 Image("interaction_logo")
+                    .padding(.bottom, 210)
                 
                 VStack(spacing: 20) {
-                    Text("Déposez votre badge sur le socle devant vous pour lancer l’interaction")
+                    Text("Déposez votre badge sur le socle devant vous pour démarrer la mission")
                         .font(.josefinSansTitle1)
+                        .padding(.bottom, 75)
                 }
             }.foregroundColor(Color.paleBrown100)
-            
-            Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(NoiseBackground(type: .dark))

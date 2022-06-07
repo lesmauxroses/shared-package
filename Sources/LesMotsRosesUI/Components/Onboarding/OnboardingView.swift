@@ -11,19 +11,16 @@ public struct OnboardingView: View {
     @State var onboardingStep: Int
     var familyName: String? = nil
     var missionNumber: Int? = nil
-    let missionText: String
-    let timeAvailable: Int
+    var missionIllu: String
     
     public init(
         onboardingStep: State<Int>,
         missionNumber: Int?,
-        missionText: String,
-        timeAvailable: Int
+        missionIllu: String
     ) {
         self._onboardingStep = onboardingStep
         self.missionNumber = missionNumber
-        self.missionText = missionText
-        self.timeAvailable = timeAvailable
+        self.missionIllu = missionIllu
     }
     
     public var body: some View {
@@ -35,8 +32,7 @@ public struct OnboardingView: View {
         case 3:
             OnboardingMission(
                 missionNumber: missionNumber,
-                missionText: missionText,
-                timeAvailable: timeAvailable
+                missionIllu: missionIllu
             )
         default:
             EmptyView()
@@ -49,8 +45,7 @@ struct OnboardingView_Previews: PreviewProvider {
         OnboardingView(
             onboardingStep: State(initialValue: 1),
             missionNumber: 1,
-            missionText: "Analysez la présence des femmes dans un film ou une série, à partir du test de Bechdel",
-            timeAvailable: 5
+            missionIllu: ""
         )
     }
 }

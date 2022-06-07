@@ -9,12 +9,19 @@ import SwiftUI
 
 struct OnboardingIntro: View {
     var body: some View {
-        VStack(spacing: 150) {
-            Image("illu_eye_big_dark")
+        VStack {
+            Spacer()
             
-            Text("Bonjour et bienvenue la famille Rnard ! ")
+            Image("illu_eye_big_dark")
+                .padding(.bottom, 30)
+            
+            Image("title_welcome")
+                .padding(.bottom, 120)
+            
+            Text("Heureuse de vous retrouver pour cette mission")
                 .font(.josefinSansTitle1)
                 .foregroundColor(Color.dark100)
+                .padding(.bottom, 75)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
