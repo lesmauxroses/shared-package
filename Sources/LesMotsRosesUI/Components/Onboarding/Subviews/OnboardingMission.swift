@@ -29,6 +29,7 @@ public struct OnboardingMission: View {
                 .padding(.bottom, 100)
             
             Text("Passons au détail de votre mission : je vous propose de réaliser une première enquête...")
+                .font(.josefinInfo)
 
 //            VStack {
 //                Text(missionText)
