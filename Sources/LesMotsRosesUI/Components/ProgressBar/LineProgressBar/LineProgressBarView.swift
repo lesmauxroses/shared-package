@@ -32,11 +32,12 @@ public struct LineProgressBarView: View {
         
         HStack(spacing: 30) {
             HStack {
-                VStack {}
-                .frame(width: progressionWidth, height: height)
-                .transition(.scale)
-                .animation(.easeInOut, value: progressionWidth)
-                .background(Color.MainTheme.getGradientByName(name: "gradientPurpleOrange")!)
+                VStack {
+                    VStack{}
+                    .frame(width: progressionWidth, height: height)
+                    .background(Color.MainTheme.getGradientByName(name: "gradientPurpleOrange")!)
+                }.transition(.scale)
+                    .animation(.easeInOut, value: progressionWidth)
                 
                 Spacer(minLength: 0)
             }

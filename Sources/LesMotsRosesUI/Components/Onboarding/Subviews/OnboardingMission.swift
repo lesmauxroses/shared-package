@@ -26,6 +26,9 @@ public struct OnboardingMission: View {
             }
             
             Image(missionIllu)
+                .padding(.bottom, 100)
+            
+            Text("Passons au détail de votre mission : je vous propose de réaliser une première enquête...")
 
 //            VStack {
 //                Text(missionText)
