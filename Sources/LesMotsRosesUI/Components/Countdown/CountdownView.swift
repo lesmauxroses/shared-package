@@ -23,7 +23,7 @@ public struct CountdownView: View {
             Image("bgpattern_countdown")
             
             ZStack(alignment: .center) {
-                ZStack {
+                VStack {
                     switch viewModel.remainingTime {
                     case 3:
                         NumberView(
