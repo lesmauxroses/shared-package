@@ -23,10 +23,27 @@ public struct CountdownView: View {
             Image("bgpattern_countdown")
             
             ZStack(alignment: .center) {
-                NumberView(
-                    number: viewModel.remainingTime,
-                    type: .big
-                )
+                ZStack {
+                    switch viewModel.remainingTime {
+                    case 3:
+                        NumberView(
+                            number: 3,
+                            type: .big
+                        )
+                    case 2:
+                        NumberView(
+                            number: 2,
+                            type: .big
+                        )
+                    default:
+                        NumberView(
+                            number: 1,
+                            type: .big
+                        )
+                    }
+                }.animation(.easeInOut(duration: 1), value: viewModel.remainingTime)
+                    .transition(.opacity)
+
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         #if os(iOS)
