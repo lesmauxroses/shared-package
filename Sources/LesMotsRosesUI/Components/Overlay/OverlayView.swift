@@ -12,6 +12,7 @@ public struct OverlayView: View {
     
     public var body: some View {
         VStack{}
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.dark100.opacity(0.9))
     }
 }
