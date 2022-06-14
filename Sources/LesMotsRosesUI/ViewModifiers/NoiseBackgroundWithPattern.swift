@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import LesMotsRosesUI
 
 public struct NoiseBackgroundWithPattern: ViewModifier {
     

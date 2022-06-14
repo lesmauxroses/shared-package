@@ -23,10 +23,11 @@ public struct BasicButton: View {
     public var body: some View {
         VStack {
             if(self.buttonText != nil) {
-                HStack (spacing: 10) {
+                HStack (spacing: 15) {
                     Text(self.buttonText ?? "")
                         .font(.josefinBody)
                         .foregroundColor(Color.paleBrown100)
+                    
                     Image("arrow")
                         .resizable()
                         .frame(width: 30, height: 30)
@@ -45,6 +46,7 @@ public struct BasicButton: View {
                 Image("arrow")
                     .resizable()
                     .frame(width: 50, height: 50)
+                    .rotationEffect(Angle(degrees: -4))
                     .padding(15)
                     .background(Color.purple100)
                     .cornerRadius(100)
