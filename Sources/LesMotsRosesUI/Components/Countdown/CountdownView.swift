@@ -10,10 +10,10 @@ import SwiftUI
 public struct CountdownView: View {
     @StateObject var viewModel = CountdownViewModel()
     let circleSize: CGFloat = 472
-    var screenType: ScreenType = .ipad
+    var screenType: ScreenType
     var onFinished: () -> Void
     
-    public init(screenType: ScreenType, onFinished: @escaping () -> Void) {
+    public init(screenType: ScreenType = .ipad, onFinished: @escaping () -> Void) {
         self.screenType = screenType
         self.onFinished = onFinished
     }
