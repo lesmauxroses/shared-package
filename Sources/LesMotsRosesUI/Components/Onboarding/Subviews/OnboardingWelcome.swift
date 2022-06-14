@@ -12,20 +12,18 @@ struct OnboardingWelcome: View {
         VStack {
             Spacer()
             
-            VStack() {
-                Image("interaction_logo")
-                    .padding(.bottom, 210)
-                
-                VStack(spacing: 20) {
-                    Text("Déposez votre badge sur le socle devant vous pour démarrer la mission")
-                        .font(.josefinSansTitle1)
-                        .padding(.bottom, 75)
-                }
-            }.foregroundColor(Color.paleBrown100)
+            Image("interaction_logo")
+                .padding(.bottom, 210)
             
             Spacer()
+            
+            
+            Text("Déposez votre badge sur le socle devant vous pour démarrer la mission")
+                .font(.josefinSansTitle1)
+                .padding(.bottom, 75)
         }
+    }.foregroundColor(Color.paleBrown100)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(NoiseBackground(type: .dark))
-    }
+}
 }
