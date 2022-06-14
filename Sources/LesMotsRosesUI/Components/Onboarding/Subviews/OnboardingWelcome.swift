@@ -17,13 +17,11 @@ struct OnboardingWelcome: View {
             
             Spacer()
             
-            
             Text("Déposez votre badge sur le socle devant vous pour démarrer la mission")
                 .font(.josefinSansTitle1)
                 .padding(.bottom, 75)
-        }
-    }.foregroundColor(Color.paleBrown100)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .modifier(NoiseBackground(type: .dark))
-}
+        }.foregroundColor(Color.paleBrown100)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .modifier(NoiseBackground(type: .dark))
+    }
 }
