@@ -12,7 +12,7 @@ struct OnboardingWelcome: View {
         VStack {
             Spacer()
             
-            VStack(spacing: 150) {
+            VStack() {
                 Image("interaction_logo")
                     .padding(.bottom, 210)
                 
@@ -22,6 +22,8 @@ struct OnboardingWelcome: View {
                         .padding(.bottom, 75)
                 }
             }.foregroundColor(Color.paleBrown100)
+            
+            Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(NoiseBackground(type: .dark))
