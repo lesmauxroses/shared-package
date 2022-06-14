@@ -42,13 +42,12 @@ public struct ControlView: View {
                 
                 Spacer()
                 
-                if (action != nil) {
-                    Button(action: {
-                        action!()
-                    }, label: {
-                        BasicButton(buttonText: self.buttonText)
+                if let action = action {
+                    BasicButton(buttonText: self.buttonText, onTap: {
+                        action()
                     })
                 }
+                
             }.frame(height: 450)
              .offset(y: 100)
         }
