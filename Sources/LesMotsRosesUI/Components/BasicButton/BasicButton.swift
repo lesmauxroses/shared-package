@@ -1,108 +1,65 @@
 //
-//  File.swift
+//  BasicButton.swift
 //  
 //
 //  Created by Killian Sowa on 22/04/2022.
 //
 
+import Foundation
 import SwiftUI
 
 public struct BasicButton: View {
-    @Binding var isLoading: Bool
-    @State var isSelected: Bool
-    var fillWidth: Bool
-    let type: ButtonType
-    let text: String
-    let onTapped: () -> Void
+    let buttonText: String?
     
     public init(
-        isLoading: Binding<Bool> = .constant(false),
-        isSelected: State<Bool>,
-        fillWidth: Bool = false,
-        type: ButtonType = .primary,
-        text: String,
-        onTapped: @escaping () -> Void
+        buttonText: String? = nil
     ) {
-        self._isLoading = isLoading
-        self._isSelected = isSelected
-        self.fillWidth = fillWidth
-        self.type = type
-        self.text = text
-        self.onTapped = onTapped
+        self.buttonText = buttonText
     }
-    
+
     public var body: some View {
-        Button(action: {
-            onTapped()
-        }) {
-            HStack {
-                if isLoading{
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
-                        .frame(height: 64)
-                } else {
-                    Text(text)
-                        .font(.josefinSans)
-                }
+        if(self.buttonText != nil) {
+            HStack (spacing: 10) {
+                Text(self.buttonText ?? "")
+                    .font(.josefinBody)
+                    .foregroundColor(Color.paleBrown100)
+                Image("arrow")
+                    .resizable()
+                    .frame(width: 30, height: 30)
             }
+            .padding(.leading, 28)
+            .padding(.trailing, 28)
+            .padding(.top, 16)
+            .padding(.bottom, 16)
+            .background(Color.purple100)
+            .cornerRadius(100)
+            .overlay(
+                RoundedRectangle(cornerRadius: 100)
+                    .stroke(Color.dark100, lineWidth: 2)
+            )
+        } else {
+            Image("arrow")
+                .resizable()
+                .frame(width: 50, height: 50)
+                .padding(15)
+                .background(Color.purple100)
+                .cornerRadius(100)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 100)
+                        .stroke(Color.dark100, lineWidth: 2)
+                )
         }
-        .transition(.scale)
-        .transition(.opacity)
-        .animation(.easeInOut, value: isLoading)
-        .disabled(isLoading)
-        .buttonStyle(BasicButtonStyle(
-            type: type,
-            isSelected: _isSelected)
-        )
-        .frame(maxWidth: fillWidth ? .infinity : .none)
     }
 }
 
 struct BasicButton_Previews: PreviewProvider {
     static var previews: some View {
-        VStack(spacing: 20) {
-            HStack {
-                BasicButton(
-                    isLoading: .constant(false),
-                    isSelected: State(initialValue: false),
-                    type: .primary,
-                    text: "Commencer",
-                    onTapped: {}
-                )
-                
-                BasicButton(
-                    isLoading: .constant(false),
-                    isSelected: State(initialValue: true),
-                    type: .primary,
-                    text: "Commencer",
-                    onTapped: {}
-                )
-            }
+        VStack(spacing: 30) {
+            BasicButton()
+                .previewLayout(.fixed(width: 1920, height: 1080))
             
-            HStack {
-                BasicButton(
-                    isLoading: .constant(false),
-                    isSelected: State(initialValue: false),
-                    type: .secondary,
-                    text: "Commencer",
-                    onTapped: {}
-                )
-                
-                BasicButton(
-                    isLoading: .constant(false),
-                    isSelected: State(initialValue: true),
-                    type: .secondary,
-                    text: "Commencer",
-                    onTapped: {}
-                )
-            }
-            
-        }.padding(50)
-            .background(Color.gray)
+            BasicButton(buttonText: "Commencer le jeu")
+        }
 
     }
-}
-
-public enum ButtonType {
-    case primary, secondary
 }

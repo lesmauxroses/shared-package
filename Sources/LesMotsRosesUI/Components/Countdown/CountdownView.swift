@@ -9,7 +9,6 @@ import SwiftUI
 
 public struct CountdownView: View {
     @StateObject var viewModel = CountdownViewModel()
-    @State var circleScale: CGFloat = 1
     let circleSize: CGFloat = 472
     var onFinished: () -> Void
     
@@ -52,13 +51,6 @@ public struct CountdownView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(NoiseBackground(type: .dark))
         .ignoresSafeArea()
-        .onChange(of: viewModel.remainingTime, perform: { newValue in
-            if newValue == 1 {
-                withAnimation() {
-                    circleScale = 0
-                }
-            }
-        })
         .onAppear {
             viewModel.launchTimer(onFinished: {
                 onFinished()
