@@ -10,9 +10,11 @@ import SwiftUI
 public struct CountdownView: View {
     @StateObject var viewModel = CountdownViewModel()
     let circleSize: CGFloat = 472
+    var screenType: ScreenType = .ipad
     var onFinished: () -> Void
     
-    public init(onFinished: @escaping () -> Void) {
+    public init(screenType: ScreenType, onFinished: @escaping () -> Void) {
+        self.screenType = screenType
         self.onFinished = onFinished
     }
     
@@ -49,7 +51,7 @@ public struct CountdownView: View {
         .navigationBarHidden(true)
         #endif
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .modifier(NoiseBackground(type: .dark))
+        .modifier(NoiseBackgroundWithPattern(theme: .dark, pattern: .controlDark))
         .ignoresSafeArea()
         .onAppear {
             viewModel.launchTimer(onFinished: {
@@ -62,7 +64,7 @@ public struct CountdownView: View {
 
 struct CountdownView_Previews: PreviewProvider {
     static var previews: some View {
-        CountdownView(onFinished: {})
+        CountdownView(screenType: .screen, onFinished: {})
             .previewLayout(.fixed(width: 1920, height: 1080))
     }
 }
