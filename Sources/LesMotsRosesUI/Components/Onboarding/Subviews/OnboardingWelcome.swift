@@ -13,7 +13,6 @@ struct OnboardingWelcome: View {
             Spacer()
             
             Image("interaction_logo")
-                .padding(.bottom, 210)
             
             Spacer()
             
