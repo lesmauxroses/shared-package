@@ -45,6 +45,8 @@ public enum Pattern: String {
     case control = "pattern-control"
     case controlDark = "pattern-control-dark"
     case onboardingWelcome = "pattern-onboarding-welcome"
+    case onboardingIntro = "pattern-onboarding-intro"
+    case onboardingMission = "pattern-onboarding-mission"
     case btc4 = "pattern-BTC-4"
     case btc5 = "pattern-BTC-5"
     case btc28 = "pattern-BTC-28"

@@ -25,6 +25,6 @@ struct OnboardingIntro: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
-        .modifier(NoiseBackground(type: .light))
+        .modifier(NoiseBackgroundWithPattern(theme: .light, pattern: .onboardingIntro))
     }
 }
