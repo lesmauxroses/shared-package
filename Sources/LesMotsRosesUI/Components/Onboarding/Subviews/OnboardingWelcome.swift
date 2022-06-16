@@ -21,6 +21,6 @@ struct OnboardingWelcome: View {
                 .padding(.bottom, 75)
         }.foregroundColor(Color.paleBrown100)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .modifier(NoiseBackground(type: .dark))
+            .modifier(NoiseBackgroundWithPattern(theme: .dark, pattern: .onboardingWelcome))
     }
 }
