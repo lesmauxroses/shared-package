@@ -16,7 +16,7 @@ struct OnboardingIntro: View {
             
             Image("illu_eye_big_dark")
                 .padding(.bottom, 30)
-                .offset(y: bouncing ? -40 : 0)
+                .offset(y: bouncing ? -30 : 0)
                 .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true))
             
             Image("title_welcome")
