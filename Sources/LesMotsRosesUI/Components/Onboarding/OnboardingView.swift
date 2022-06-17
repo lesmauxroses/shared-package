@@ -38,7 +38,7 @@ public struct OnboardingView: View {
             default:
                 EmptyView()
             }
-        }        .animation(Animation.easeInOut(duration: 1), value: onboadingStep)
+        }        .animation(Animation.easeInOut(duration: 1), value: onboardingStep)
             .transition(.opacity)
 
     }
