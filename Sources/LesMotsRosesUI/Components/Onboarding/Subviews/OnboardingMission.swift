@@ -10,6 +10,7 @@ import SwiftUI
 public struct OnboardingMission: View {
     var missionNumber: Int? = nil
     let missionIllu: String
+    @State var bouncing: Bool = false
     
     public init(
         missionNumber: Int?,
@@ -27,6 +28,8 @@ public struct OnboardingMission: View {
             
             Image(missionIllu)
                 .padding(.bottom, 100)
+                .offset(y: bouncing ? -30 : 0)
+                .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true))
             
             Text("Passons au détail de votre mission : je vous propose de réaliser une première enquête...")
                 .font(.josefinInfo)
@@ -57,6 +60,9 @@ public struct OnboardingMission: View {
 //                    .rotationEffect(Angle(degrees: 2.5))
                     
 //            }
+        }
+        .onAppear {
+            self.bouncing.toggle()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()

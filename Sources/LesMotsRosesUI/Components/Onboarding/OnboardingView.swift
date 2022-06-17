@@ -24,19 +24,23 @@ public struct OnboardingView: View {
     }
     
     public var body: some View {
-        switch onboardingStep {
-        case 1:
-            OnboardingWelcome()
-        case 2:
-            OnboardingIntro()
-        case 3:
-            OnboardingMission(
-                missionNumber: missionNumber,
-                missionIllu: missionIllu
-            )
-        default:
-            EmptyView()
-        }
+        VStack {
+            switch onboardingStep {
+            case 1:
+                OnboardingWelcome()
+            case 2:
+                OnboardingIntro()
+            case 3:
+                OnboardingMission(
+                    missionNumber: missionNumber,
+                    missionIllu: missionIllu
+                )
+            default:
+                EmptyView()
+            }
+        }        .animation(Animation.easeInOut(duration: 1), value: onboadingStep)
+            .transition(.opacity)
+
     }
 }
 
