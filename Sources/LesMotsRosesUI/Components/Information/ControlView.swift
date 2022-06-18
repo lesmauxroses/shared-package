@@ -18,13 +18,13 @@ public struct ControlView: View {
     public init(
         theme: Theme,
         title: String,
-        showButton: Bool = true,
+        showButton: State<Bool> = State(initialValue: true),
         buttonText: String? = nil,
         action: (() -> Void)? = nil
     ) {
         self.theme = theme
         self.title = title
-        self.showButton = showButton
+        self._showButton = showButton
         self.buttonText = buttonText
         self.action = action
     }
@@ -45,16 +45,17 @@ public struct ControlView: View {
                 
                 Spacer()
                 
-                if(action != nil && self.showButton == true) {
-                    BasicButton(buttonText: self.buttonText, onTap: {
-                        action!()
-                    })
-                }
-//                if let action = action {
+//                if(action != nil && self.showButton == true) {
 //                    BasicButton(buttonText: self.buttonText, onTap: {
-//                        action()
+//                        action!()
 //                    })
 //                }
+                if let action = action {
+                    BasicButton(buttonText: self.buttonText, onTap: {
+                        action()
+                    })
+                    .opacity(self.showButton == true ? 1 : 0)
+                }
                 
             }.frame(height: 450)
              .offset(y: 100)
