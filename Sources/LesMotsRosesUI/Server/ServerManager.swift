@@ -14,10 +14,10 @@ public class ServerManager: ObservableObject {
     
     //    var url = "ws://172.17.129.124:3000" // wifi visiteur
 //        var url = "ws://172.20.10.3:3000" // wifi de kilian sur Mac Amélie
-    //        var url = "ws://172.20.10.13:3000" // wifi de kilian sur Mac Killian
-    // 169.254.166.19
+    //    var url = "ws://172.20.10.13:3000" // wifi de kilian sur Mac Killian
+    //    var url = "ws://172.20.10.13:3000" // wifi de kilian sur Mac Killian
                 
-    let manager = SocketManager(socketURL: URL(string: "ws://172.20.10.13:3000")!, config: [.log(true), .compress])
+    let manager = SocketManager(socketURL: URL(string: "ws://192.168.8.118:3000")!, config: [.log(true), .compress])
     var currentInteraction: String?
     var currentDevice: String?
     
