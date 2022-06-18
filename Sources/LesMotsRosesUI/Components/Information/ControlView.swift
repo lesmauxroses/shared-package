@@ -11,17 +11,20 @@ import SwiftUI
 public struct ControlView: View {
     let theme: Theme
     let title: String
+    @State var showButton: Bool
     var buttonText: String?
     var action: (() -> Void)?
     
     public init(
         theme: Theme,
         title: String,
+        showButton: Bool = true,
         buttonText: String? = nil,
         action: (() -> Void)? = nil
     ) {
         self.theme = theme
         self.title = title
+        self.showButton = action == nil ? false : showButton
         self.buttonText = buttonText
         self.action = action
     }
@@ -42,11 +45,16 @@ public struct ControlView: View {
                 
                 Spacer()
                 
-                if let action = action {
+                if(action != nil && self.showButton == true) {
                     BasicButton(buttonText: self.buttonText, onTap: {
-                        action()
+                        action!()
                     })
                 }
+//                if let action = action {
+//                    BasicButton(buttonText: self.buttonText, onTap: {
+//                        action()
+//                    })
+//                }
                 
             }.frame(height: 450)
              .offset(y: 100)
