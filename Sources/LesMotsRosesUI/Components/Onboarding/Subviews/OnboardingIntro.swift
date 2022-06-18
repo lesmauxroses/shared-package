@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingIntro: View {
     @State var bouncing: Bool = false
     let captions: [Caption]
+    var captionsDelay: CGFloat = 0
     
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct OnboardingIntro: View {
             Image("title_welcome")
                 .padding(.bottom, 120)
             
-            CaptionsView(captions: captions)
+            CaptionsView(captions: captions, delay: captionsDelay)
         }
         .onAppear {
             self.bouncing.toggle()

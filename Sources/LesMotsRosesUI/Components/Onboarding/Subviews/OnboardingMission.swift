@@ -11,16 +11,19 @@ public struct OnboardingMission: View {
     var missionNumber: Int? = nil
     let missionIllu: String
     let captions: [Caption]
+    var captionsDelay: CGFloat = 0
     @State var bouncing: Bool = false
     
     public init(
         missionNumber: Int?,
         missionIllu: String,
-        captions: [Caption]
+        captions: [Caption],
+        captionsDelay: CGFloat = 0
     ) {
         self.missionNumber = missionNumber
         self.missionIllu = missionIllu
         self.captions = captions
+        self.captionsDelay = captionsDelay
     }
     
     public var body: some View {
@@ -34,7 +37,7 @@ public struct OnboardingMission: View {
                 .offset(y: bouncing ? -30 : 0)
                 .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true))
             
-            CaptionsView(captions: captions)
+            CaptionsView(captions: captions, delay: captionsDelay)
 
 //            VStack {
 //                Text(missionText)

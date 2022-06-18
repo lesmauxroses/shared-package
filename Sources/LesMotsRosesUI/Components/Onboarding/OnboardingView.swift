@@ -13,19 +13,25 @@ public struct OnboardingView: View {
     var missionIllu: String
     var introCaptions: [Caption]
     var missionCaptions: [Caption]
+    var introCaptionsDelay: CGFloat
+    var missionCaptionsDelay: CGFloat
     
     public init(
         onboardingStep: State<Int>,
         missionNumber: Int?,
         missionIllu: String,
         introCaptions: [Caption],
-        missionCaptions: [Caption]
+        missionCaptions: [Caption],
+        introCaptionsDelay: CGFloat,
+        missionCaptionsDelay: CGFloat
     ) {
         self._onboardingStep = onboardingStep
         self.missionNumber = missionNumber
         self.missionIllu = missionIllu
         self.introCaptions = introCaptions
         self.missionCaptions = missionCaptions
+        self.introCaptionsDelay = introCaptionsDelay
+        self.missionCaptionsDelay = missionCaptionsDelay
     }
     
     public var body: some View {
@@ -34,12 +40,16 @@ public struct OnboardingView: View {
             case 1:
                 OnboardingWelcome()
             case 2:
-                OnboardingIntro(captions: introCaptions)
+                OnboardingIntro(
+                    captions: introCaptions,
+                    captionsDelay: introCaptionsDelay
+                )
             case 3:
                 OnboardingMission(
                     missionNumber: missionNumber,
                     missionIllu: missionIllu,
-                    captions: missionCaptions
+                    captions: missionCaptions,
+                    captionsDelay: missionCaptionsDelay
                 )
             default:
                 EmptyView()
@@ -57,7 +67,9 @@ struct OnboardingView_Previews: PreviewProvider {
             missionNumber: 1,
             missionIllu: "",
             introCaptions: [],
-            missionCaptions: []
+            missionCaptions: [],
+            introCaptionsDelay: 1,
+            missionCaptionsDelay: 1
         )
     }
 }

@@ -28,6 +28,8 @@ public struct CaptionsView: View {
                     .font(.josefinInfo)
                     .transition(.opacity)
                     .id(UUID().uuidString)
+                    .padding(.horizontal, 200)
+                    .padding(.bottom, 70)
             }
         }.onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
