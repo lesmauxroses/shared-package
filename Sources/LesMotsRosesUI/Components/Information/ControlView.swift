@@ -24,7 +24,7 @@ public struct ControlView: View {
     ) {
         self.theme = theme
         self.title = title
-        self.showButton = (action == nil ? false : showButton)
+        self.showButton = showButton
         self.buttonText = buttonText
         self.action = action
     }
