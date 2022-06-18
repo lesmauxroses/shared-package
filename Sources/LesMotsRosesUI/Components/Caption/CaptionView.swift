@@ -56,10 +56,10 @@ public struct CaptionView: View {
 struct CaptionViewView_Previews: PreviewProvider {
     static var previews: some View {
         CaptionView(captions: [
-            Caption(text: "Weshhh, petit test de sous-titre", time: 0),
+            Caption(text: "Weshhh, petit test de sous-titre", time: 4),
             Caption(text: "Weshhh, vfzefzefzfzs-titre", time: 4),
-            Caption(text: "cdlsnvdkzjvbfjzzs-titre", time: 8),
-            Caption(text: "Woroogferloloozs-titre", time: 12),
+            Caption(text: "cdlsnvdkzjvbfjzzs-titre", time: 4),
+            Caption(text: "Woroogferloloozs-titre", time: 4),
         ])
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.paleBrown100)
