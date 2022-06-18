@@ -9,18 +9,23 @@ import SwiftUI
 
 public struct OnboardingView: View {
     @State var onboardingStep: Int
-    var familyName: String? = nil
     var missionNumber: Int? = nil
     var missionIllu: String
+    var introCaptions: [Caption]
+    var missionCaptions: [Caption]
     
     public init(
         onboardingStep: State<Int>,
         missionNumber: Int?,
-        missionIllu: String
+        missionIllu: String,
+        introCaptions: [Caption],
+        missionCaptions: [Caption]
     ) {
         self._onboardingStep = onboardingStep
         self.missionNumber = missionNumber
         self.missionIllu = missionIllu
+        self.introCaptions = introCaptions
+        self.missionCaptions = missionCaptions
     }
     
     public var body: some View {
@@ -29,11 +34,12 @@ public struct OnboardingView: View {
             case 1:
                 OnboardingWelcome()
             case 2:
-                OnboardingIntro()
+                OnboardingIntro(captions: introCaptions)
             case 3:
                 OnboardingMission(
                     missionNumber: missionNumber,
-                    missionIllu: missionIllu
+                    missionIllu: missionIllu,
+                    captions: missionCaptions
                 )
             default:
                 EmptyView()
@@ -49,7 +55,9 @@ struct OnboardingView_Previews: PreviewProvider {
         OnboardingView(
             onboardingStep: State(initialValue: 1),
             missionNumber: 1,
-            missionIllu: ""
+            missionIllu: "",
+            introCaptions: [],
+            missionCaptions: []
         )
     }
 }

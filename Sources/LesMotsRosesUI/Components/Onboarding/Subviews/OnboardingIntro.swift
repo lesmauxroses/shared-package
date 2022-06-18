@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OnboardingIntro: View {
     @State var bouncing: Bool = false
+    let captions: [Caption]
     
     var body: some View {
         VStack {
@@ -22,10 +23,7 @@ struct OnboardingIntro: View {
             Image("title_welcome")
                 .padding(.bottom, 120)
             
-            Text("Heureuse de vous retrouver pour cette mission")
-                .font(.josefinSansTitle1)
-                .foregroundColor(Color.dark100)
-                .padding(.bottom, 75)
+            CaptionsView(captions: captions)
         }
         .onAppear {
             self.bouncing.toggle()

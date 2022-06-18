@@ -10,14 +10,17 @@ import SwiftUI
 public struct OnboardingMission: View {
     var missionNumber: Int? = nil
     let missionIllu: String
+    let captions: [Caption]
     @State var bouncing: Bool = false
     
     public init(
         missionNumber: Int?,
-        missionIllu: String
+        missionIllu: String,
+        captions: [Caption]
     ) {
         self.missionNumber = missionNumber
         self.missionIllu = missionIllu
+        self.captions = captions
     }
     
     public var body: some View {
@@ -31,8 +34,7 @@ public struct OnboardingMission: View {
                 .offset(y: bouncing ? -30 : 0)
                 .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true))
             
-            Text("Passons au détail de votre mission : je vous propose de réaliser une première enquête...")
-                .font(.josefinInfo)
+            CaptionsView(captions: captions)
 
 //            VStack {
 //                Text(missionText)
@@ -74,7 +76,8 @@ struct OnboardingMission_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingMission(
             missionNumber: 1,
-            missionIllu: ""
+            missionIllu: "",
+            captions: [Caption(text: "Passons au détail de votre mission : je vous propose de réaliser une première enquête...", time: 5)]
         )
             .previewLayout(.fixed(width: 1920, height: 1080))
     }

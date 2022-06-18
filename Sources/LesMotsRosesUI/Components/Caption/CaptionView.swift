@@ -1,5 +1,5 @@
 //
-//  CaptionView.swift
+//  CaptionsView.swift
 //  
 //
 //  Created by Killian Sowa on 18/06/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct CaptionView: View {
+public struct CaptionsView: View {
     @State var currentStep: Int = 0
     let captions: [Caption]
     var delay: CGFloat = 0
@@ -22,12 +22,13 @@ public struct CaptionView: View {
     
     public var body: some View {
         VStack {
-            Text(captions[currentStep].text)
-                .foregroundColor(Color.dark100)
-                .font(.josefinInfo)
-                .transition(.opacity)
-                .id(UUID().uuidString)
-            
+            if !captions.isEmpty {
+                Text(captions[currentStep].text)
+                    .foregroundColor(Color.dark100)
+                    .font(.josefinInfo)
+                    .transition(.opacity)
+                    .id(UUID().uuidString)
+            }
         }.onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                 launchSteps(sequenceSteps: captions)
@@ -53,9 +54,9 @@ public struct CaptionView: View {
     }
 }
 
-struct CaptionViewView_Previews: PreviewProvider {
+struct CaptionsViewView_Previews: PreviewProvider {
     static var previews: some View {
-        CaptionView(captions: [
+        CaptionsView(captions: [
             Caption(text: "Weshhh, petit test de sous-titre", time: 4),
             Caption(text: "Weshhh, vfzefzefzfzs-titre", time: 4),
             Caption(text: "cdlsnvdkzjvbfjzzs-titre", time: 4),
