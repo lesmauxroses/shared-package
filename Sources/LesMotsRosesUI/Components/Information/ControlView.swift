@@ -11,7 +11,7 @@ import SwiftUI
 public struct ControlView: View {
     let theme: Theme
     let title: String
-    @State var showButton: Bool
+    @Binding var showButton: Bool
     var buttonText: String?
     var action: (() -> Void)?
     
