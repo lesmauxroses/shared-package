@@ -28,8 +28,10 @@ public struct CaptionsView: View {
                     .font(.josefinInfo)
                     .transition(.opacity)
                     .id(UUID().uuidString)
-                    .padding(.horizontal, 200)
+                    .frame(maxWidth: 1000)
                     .padding(.bottom, 70)
+                    .multilineTextAlignment(TextAlignment.center)
+                    .lineSpacing(20)
             }
         }.onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
@@ -59,7 +61,7 @@ public struct CaptionsView: View {
 struct CaptionsViewView_Previews: PreviewProvider {
     static var previews: some View {
         CaptionsView(captions: [
-            Caption(text: "Weshhh, petit test de sous-titre", time: 4),
+            Caption(text: "Heureuse de vous retrouver pour cette troisième mission sur le thème de la musique la famille Veil !", time: 4),
             Caption(text: "Weshhh, vfzefzefzfzs-titre", time: 4),
             Caption(text: "cdlsnvdkzjvbfjzzs-titre", time: 4),
             Caption(text: "Woroogferloloozs-titre", time: 4),
