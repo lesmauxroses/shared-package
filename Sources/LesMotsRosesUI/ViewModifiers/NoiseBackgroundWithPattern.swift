@@ -44,6 +44,7 @@ public struct NoiseBackgroundWithPattern: ViewModifier {
 public enum Pattern: String {
     case control = "pattern-control"
     case controlDark = "pattern-control-dark"
+    case countdown = "pattern-countdown"
     case onboardingWelcome = "pattern-onboarding-welcome"
     case onboardingIntro = "pattern-onboarding-intro"
     case onboardingMission = "pattern-onboarding-mission"
