@@ -51,7 +51,7 @@ public struct ControlView: View {
                     BasicButton(buttonText: self.buttonText, onTap: {
                         action()
                     })
-                    .opacity(self._showButton == true ? 1 : 0)
+                    .opacity(State(wrappedValue: self.showButton) == true ? 1 : 0)
                 }
                 
             }.frame(height: 450)
