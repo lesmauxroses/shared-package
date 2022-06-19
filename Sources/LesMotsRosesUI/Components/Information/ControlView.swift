@@ -57,7 +57,7 @@ public struct ControlView: View {
                             self.opacity = 1
                         }
                     }
-                    .onChange(of: self.showButton, perform: newValue in {
+                    .onChange(of: self.showButton, perform: { newValue in
                         withAnimation (.easeOut(duration: 0.5)) {
                             self.opacity = 1
                         }
