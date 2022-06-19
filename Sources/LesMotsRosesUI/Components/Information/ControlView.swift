@@ -15,7 +15,7 @@ public struct ControlView: View {
     var buttonText: String?
     var action: (() -> Void)?
     
-    private var opacity: Double = 0
+    @State var opacity: Double = 0
     
     public init(
         theme: Theme,
