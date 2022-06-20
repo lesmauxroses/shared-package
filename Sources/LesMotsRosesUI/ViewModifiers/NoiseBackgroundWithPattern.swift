@@ -42,6 +42,7 @@ public struct NoiseBackgroundWithPattern: ViewModifier {
 }
 
 public enum Pattern: String {
+    case albumTransition = "pattern-album-transition"
     case control = "pattern-control"
     case controlDark = "pattern-control-dark"
     case countdown = "pattern-countdown"
