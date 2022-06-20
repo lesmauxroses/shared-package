@@ -14,19 +14,22 @@ public struct LineProgressBarView: View {
     let height: CGFloat = 60
     var showTimeText: Bool = true
     var withBorder: Bool = false
+    var isLight: Bool = false
     
     public init(
         totalTime: CGFloat,
         currentTime: CGFloat,
         width: CGFloat,
         showTimeText: Bool = true,
-        withBorder: Bool = false
+        withBorder: Bool = false,
+        isLight: Bool = false
     ) {
         self.totalTime = totalTime
         self.currentTime = currentTime
         self.width = width
         self.showTimeText = showTimeText
         self.withBorder = withBorder
+        self.isLight = isLight
     }
     
     public var body: some View {
@@ -55,7 +58,7 @@ public struct LineProgressBarView: View {
             if showTimeText {
                 Text("\(remainingTime.asMinutesSeconds(style: .positional))")
                     .font(.custom("JosefinSans-Bold", size: 50))
-                    .foregroundColor(Color.paleBrown100)
+                    .foregroundColor(isLight ? Color.dark100 : Color.paleBrown100)
                     .fixedSize(horizontal: true, vertical: false)
                     .frame(width: 132)
             }
