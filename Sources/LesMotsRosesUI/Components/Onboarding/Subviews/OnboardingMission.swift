@@ -28,6 +28,8 @@ public struct OnboardingMission: View {
     
     public var body: some View {
         VStack(spacing: 30) {
+            Spacer()
+            
             HStack {
                 Image("mission_title")
             }
