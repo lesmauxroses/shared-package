@@ -46,11 +46,11 @@ public struct LineProgressBarView: View {
             }
             .frame(width: width, height: height)
             .background(Color.paleBrown100)
+            .cornerRadius(18)
             .overlay(
-                RoundedRectangle(cornerRadius: 16)
+                RoundedRectangle(cornerRadius: 18)
                     .stroke(Color.dark100, lineWidth: withBorder ? 2 : 0)
             )
-            .cornerRadius(18)
             
             if showTimeText {
                 Text("\(remainingTime.asMinutesSeconds(style: .positional))")
