@@ -15,7 +15,7 @@ public struct ControlView: View {
     var buttonText: String?
     var action: (() -> Void)?
     
-    private var opacity = 0
+    @State var opacity: Double = 0
     
     public init(
         theme: Theme,
@@ -51,7 +51,17 @@ public struct ControlView: View {
                     BasicButton(buttonText: self.buttonText, onTap: {
                         action()
                     })
-                    .opacity(self.showButton == true ? 1 : 0)
+                    .opacity(self.opacity)
+                    .onAppear {
+                        if(self.showButton == true) {
+                            self.opacity = 1
+                        }
+                    }
+                    .onChange(of: self.showButton, perform: { newValue in
+                        withAnimation (.easeOut(duration: 1)) {
+                            opacity = 1
+                        }
+                    })
                 }
                 
             }.frame(height: 450)
