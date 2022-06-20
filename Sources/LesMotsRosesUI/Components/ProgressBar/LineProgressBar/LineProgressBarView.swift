@@ -13,17 +13,20 @@ public struct LineProgressBarView: View {
     let width: CGFloat
     let height: CGFloat = 60
     var showTimeText: Bool = true
+    var withBorder: Bool = false
     
     public init(
         totalTime: CGFloat,
         currentTime: CGFloat,
         width: CGFloat,
-        showTimeText: Bool = true
+        showTimeText: Bool = true,
+        withBorder: Bool = false
     ) {
         self.totalTime = totalTime
         self.currentTime = currentTime
         self.width = width
         self.showTimeText = showTimeText
+        self.withBorder = withBorder
     }
     
     public var body: some View {
@@ -43,6 +46,10 @@ public struct LineProgressBarView: View {
             }
             .frame(width: width, height: height)
             .background(Color.paleBrown100)
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(Color.dark100, lineWidth: withBorder ? 2 : 0)
+            )
             .cornerRadius(18)
             
             if showTimeText {
@@ -61,9 +68,11 @@ struct LineProgressBarView_Previews: PreviewProvider {
     static var previews: some View {
         LineProgressBarView(
             totalTime: 200,
-            currentTime: 9,
-            width: 734
+            currentTime: 100,
+            width: 734,
+            withBorder: true
         )
+
     }
 }
 
