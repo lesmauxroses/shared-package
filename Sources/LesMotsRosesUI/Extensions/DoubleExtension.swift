@@ -12,6 +12,16 @@ extension Double {
     let formatter = DateComponentsFormatter()
     formatter.allowedUnits = [.minute, .second]
     formatter.unitsStyle = style
-    return formatter.string(from: self) ?? ""
+      let timeFormatted = formatter.string(from: self) ?? ""
+      
+      if self < 60 {
+          if self < 10 {
+              return "00:0\(timeFormatted)"
+          } else {
+              return "00:\(timeFormatted)"
+          }
+      } else {
+          return timeFormatted
+      }
   }
 }

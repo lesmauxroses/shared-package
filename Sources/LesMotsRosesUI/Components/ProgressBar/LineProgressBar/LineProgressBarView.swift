@@ -50,6 +50,7 @@ public struct LineProgressBarView: View {
                     .font(.custom("JosefinSans-Bold", size: 50))
                     .foregroundColor(Color.paleBrown100)
                     .fixedSize(horizontal: true, vertical: false)
+                    .frame(width: 132)
             }
         }
 
