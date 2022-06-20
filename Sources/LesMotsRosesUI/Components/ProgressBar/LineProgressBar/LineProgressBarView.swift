@@ -60,8 +60,8 @@ public struct LineProgressBarView: View {
 struct LineProgressBarView_Previews: PreviewProvider {
     static var previews: some View {
         LineProgressBarView(
-            totalTime: 20,
-            currentTime: 12,
+            totalTime: 200,
+            currentTime: 9,
             width: 734
         )
     }

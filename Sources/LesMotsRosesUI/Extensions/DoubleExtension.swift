@@ -21,7 +21,7 @@ extension Double {
               return "00:\(timeFormatted)"
           }
       } else {
-          return timeFormatted
+          return "0\(timeFormatted)"
       }
   }
 }
