@@ -15,16 +15,18 @@ public struct ControlView: View {
     var buttonText: String?
     var action: (() -> Void)?
     
+    private var opacity = 0
+    
     public init(
         theme: Theme,
         title: String,
-        showButton: Bool = true,
+        showButton: State<Bool> = State(initialValue: true),
         buttonText: String? = nil,
         action: (() -> Void)? = nil
     ) {
         self.theme = theme
         self.title = title
-        self.showButton = action == nil ? false : showButton
+        self._showButton = showButton
         self.buttonText = buttonText
         self.action = action
     }
@@ -45,16 +47,12 @@ public struct ControlView: View {
                 
                 Spacer()
                 
-                if(action != nil && self.showButton == true) {
+                if let action = action {
                     BasicButton(buttonText: self.buttonText, onTap: {
-                        action!()
+                        action()
                     })
+                    .opacity(self.showButton == true ? 1 : 0)
                 }
-//                if let action = action {
-//                    BasicButton(buttonText: self.buttonText, onTap: {
-//                        action()
-//                    })
-//                }
                 
             }.frame(height: 450)
              .offset(y: 100)
@@ -66,7 +64,7 @@ public struct ControlView: View {
 
 struct ControlView_Previews: PreviewProvider {
     static var previews: some View {
-        ControlView(theme: .light, title: "Déposez votre badge ") {
+        ControlView(theme: .light, title: "Déposez votre badge", showButton: State(wrappedValue: true)) {
             print("vlique")
         }
             .previewLayout(.fixed(width: 1133, height: 744))
