@@ -52,6 +52,15 @@ public class ServerManager: ObservableObject {
                 
                 NotificationCenter.default.post(name: Notification.Name("stepChanged"), object: nil, userInfo: ["newStep": newStep])
             }
+            
+            socket.on("lyricsGameResult") { data, ack in
+                guard let dataDictionary = data[0] as? NSDictionary else { return }
+                guard let selectedLines = dataDictionary["selectedLines"] as? [String] else { return }
+                
+                print("[ServerManager]: selectedLines -> \(selectedLines)")
+                
+                NotificationCenter.default.post(name: Notification.Name("lyricsGameResult"), object: nil, userInfo: ["selectedLines": selectedLines])
+            }
         }
         
         socket.connect()
