@@ -70,7 +70,7 @@ public struct ExploreView: View {
                     .offset(x: 200, y: 20)
                 
                 
-            }.offset(x: -650, y: -250)
+            }.offset(x: -680, y: -320)
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .modifier(NoiseBackgroundWithPattern(theme: .dark, pattern: .explore))
