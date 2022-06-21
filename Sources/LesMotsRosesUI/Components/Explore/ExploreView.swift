@@ -8,37 +8,72 @@
 import SwiftUI
 
 public struct ExploreView: View {
+    var percentImage: String?
+    var percentText: String?
+    
     public init(
-    ) {}
+        percentImage: String? = nil,
+        percentText: String? = nil
+    ) {
+        self.percentImage = percentImage
+        self.percentText = percentText
+    }
     
     public var body: some View {
-        VStack(spacing: 50) {
-            VStack {
-                Image("title_explore")
+        ZStack {
+            VStack(spacing: 200) {
                 
-                Text("les décors autour de vous avant de passer à la suite")
-                    .foregroundColor(Color.paleBrown100)
-                    .font(.custom("JosefinSans-Bold", size: 38))
-            }
-            
-            VStack(spacing: 20) {
-                Text("02 : 59")
-                    .font(.custom("JosefinSans-Medium", size: 88))
-                    .foregroundColor(Color.paleBrown100)
-                    .padding(.horizontal, 40)
-                    .padding(.vertical, 68)
-                    .overlay(RoundedRectangle(cornerRadius: 44)
-                                .strokeBorder(Color.purple100, lineWidth: 5))
                 
-                HStack {
-                    Text("Attention au chrono !")
-                        .font(.custom("JosefinSans-SemiBold", size: 32))
+                VStack {
+                    Image("title_explore")
+                    
+                    Text("les décors autour de vous avant de passer à la suite")
                         .foregroundColor(Color.paleBrown100)
+                        .font(.custom("JosefinSans-Bold", size: 38))
+                }
+                
+                if(percentImage != nil && self.percentText != nil) {
+                    
+                    ZStack {
+                        Text(self.percentText!)
+                            .foregroundColor(Color.paleBrown100)
+                            .font(.josefinBody)
+                            .frame(width: 500)
+                            .padding(40)
+                            .padding(.top, 70)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(Color.paleBrown100, lineWidth: 2)
+                                    .rotationEffect(.degrees(-2))
+                            )
+                        
+                        Image(self.percentImage!)
+                            .offset(y: -130)
+                    }
                 }
             }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .modifier(NoiseBackground(type: .dark))
+            
+            ZStack {
+                Text("Vous pouvez récupérer votre badge !")
+                    .foregroundColor(Color.paleBrown100)
+                    .font(.josefinBody)
+                    .frame(width: 330)
+                    .padding(25)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.paleBrown100, lineWidth: 2)
+                    )
+                    .rotationEffect(.degrees(-8))
+                
+                Image("explore-eye")
+                    .rotationEffect(.degrees(-8))
+                    .offset(x: 200, y: 20)
+                
+                
+            }.offset(x: -680, y: -320)
+            
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            .modifier(NoiseBackgroundWithPattern(theme: .dark, pattern: .explore))
     }
 }
 
