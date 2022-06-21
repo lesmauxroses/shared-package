@@ -18,6 +18,8 @@ public struct Sizes: PreferenceKey {
 }
 
 public struct SizeReader: View {
+    public init() {}
+    
     public var body: some View {
         GeometryReader { proxy in
             Color.clear
