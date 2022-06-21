@@ -63,6 +63,8 @@ public class ServerManager: ObservableObject {
                 }
                 
                 print("dataDictionary", dataDictionary)
+                print("selectedLines", dataDictionary["selectedLines"])
+                print("typeof", type(of: dataDictionary["selectedLines"]) )
                 
                 guard let selectedLines = dataDictionary["selectedLines"] as? [String] else {
                     print("[ServerManager]: Impossible to get selected lines as string array")
