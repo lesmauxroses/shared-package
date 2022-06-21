@@ -55,8 +55,18 @@ public class ServerManager: ObservableObject {
             
             socket.on("lyricsGameResult") { data, ack in
                 print("lyricsGameResult brow", data)
-                guard let dataDictionary = data[0] as? NSDictionary else { return }
-                guard let selectedLines = dataDictionary["selectedLines"] as? [String] else { return }
+                
+                guard let dataDictionary = data[0] as? NSDictionary else {
+                    print("[ServerManager]: Impossible to get selected lines data dictionary")
+                    
+                    return
+                }
+                
+                guard let selectedLines = dataDictionary["selectedLines"] as? [String] else {
+                    print("[ServerManager]: Impossible to get selected lines as string array")
+                    
+                    return
+                }
                 
                 print("[ServerManager]: selectedLines -> \(selectedLines)")
                 
