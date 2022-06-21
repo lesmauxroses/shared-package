@@ -54,13 +54,27 @@ public class ServerManager: ObservableObject {
             }
             
             socket.on("gameStarted") { data, ack  in
-                print("**gameStarted")
                 guard let dataDictionary = data[0] as? NSDictionary else { return }
                 guard let selectedMusic = dataDictionary["selectedMusic"] as? String else { return }
                 
                 print("[ServerManager]: selectedMusic -> \(selectedMusic)")
                 
                 NotificationCenter.default.post(name: Notification.Name("gameStarted"), object: nil, userInfo: ["selectedMusic": selectedMusic])
+            }
+            
+            socket.on("move") { data, ack in
+                guard let dataDictionary = data[0] as? NSDictionary else { return }
+                guard let direction = dataDictionary["direction"] as? String else { return }
+                
+                print("[ServerManager]: direction -> \(direction)")
+                
+                NotificationCenter.default.post(name: Notification.Name("joystickMoved"), object: nil, userInfo: ["direction": direction])
+            }
+            
+            socket.on("buttonTapped") { data, ack in
+                print("[ServerManager]: buttonTapped")
+                
+                NotificationCenter.default.post(name: Notification.Name("buttonTapped"), object: nil)
             }
             
             socket.on("lyricsGameResult") { data, ack in
