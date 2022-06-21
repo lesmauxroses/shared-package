@@ -53,8 +53,17 @@ public class ServerManager: ObservableObject {
                 NotificationCenter.default.post(name: Notification.Name("stepChanged"), object: nil, userInfo: ["newStep": newStep])
             }
             
-            socket.on("lyricsGameResult") { data, ack in
+            socket.on("gameStarted") { data, ack  in
+                print("**gameStarted")
+                guard let dataDictionary = data[0] as? NSDictionary else { return }
+                guard let selectedMusic = dataDictionary["selectedMusic"] as? String else { return }
                 
+                print("[ServerManager]: selectedMusic -> \(selectedMusic)")
+                
+                NotificationCenter.default.post(name: Notification.Name("gameStarted"), object: nil, userInfo: ["newStep": newStep])
+            }
+            
+            socket.on("lyricsGameResult") { data, ack in
                 guard let dataDictionary = data[0] as? NSDictionary else {
                     print("[ServerManager]: Impossible to get selected lines data dictionary")
                     
