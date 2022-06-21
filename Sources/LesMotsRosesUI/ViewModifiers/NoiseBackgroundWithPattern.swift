@@ -53,4 +53,5 @@ public enum Pattern: String {
     case btc5 = "pattern-BTC-5"
     case btc28 = "pattern-BTC-28"
     case controlCircle = "circle"
+    case explore = "pattern-explore"
 }
