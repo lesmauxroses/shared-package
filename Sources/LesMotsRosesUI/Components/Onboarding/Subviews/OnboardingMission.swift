@@ -35,7 +35,7 @@ public struct OnboardingMission: View {
             }
             
             Image(missionIllu)
-                .padding(.bottom, 100)
+                .padding(.bottom, 90)
                 .offset(y: bouncing ? -30 : 0)
                 .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true))
             
