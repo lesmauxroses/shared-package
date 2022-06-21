@@ -54,6 +54,7 @@ public class ServerManager: ObservableObject {
             }
             
             socket.on("lyricsGameResult") { data, ack in
+                print("lyricsGameResult brow", data)
                 guard let dataDictionary = data[0] as? NSDictionary else { return }
                 guard let selectedLines = dataDictionary["selectedLines"] as? [String] else { return }
                 
