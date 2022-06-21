@@ -6,18 +6,19 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct Sizes: PreferenceKey {
-    typealias Value = [CGRect]
-    static var defaultValue: [CGRect] = []
+public struct Sizes: PreferenceKey {
+    public typealias Value = [CGRect]
+    public static var defaultValue: [CGRect] = []
 
-    static func reduce(value: inout [CGRect], nextValue: () -> [CGRect]) {
+    public static func reduce(value: inout [CGRect], nextValue: () -> [CGRect]) {
         value.append(contentsOf: nextValue())
     }
 }
 
-struct SizeReader: View {
-    var body: some View {
+public struct SizeReader: View {
+    public var body: some View {
         GeometryReader { proxy in
             Color.clear
             .preference(key: Sizes.self, value: [proxy.frame(in: .global)])
