@@ -8,11 +8,16 @@
 import SwiftUI
 
 public struct ExploreView: View {
-    var percentImage: String? = nil
-    var percentText: String? = nil
+    var percentImage: String?
+    var percentText: String?
     
     public init(
-    ) {}
+        percentImage: String? = nil,
+        percentText: String? = nil
+    ) {
+        self.percentImage = percentImage
+        self.percentText = percentText
+    }
     
     public var body: some View {
         ZStack {
