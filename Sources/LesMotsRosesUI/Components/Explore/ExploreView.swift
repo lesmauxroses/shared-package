@@ -57,8 +57,8 @@ public struct ExploreView: View {
                 Text("Vous pouvez récupérer votre badge !")
                     .foregroundColor(Color.paleBrown100)
                     .font(.josefinBody)
-                    .frame(width: 400)
-                    .padding(35)
+                    .frame(width: 330)
+                    .padding(25)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(Color.paleBrown100, lineWidth: 2)
