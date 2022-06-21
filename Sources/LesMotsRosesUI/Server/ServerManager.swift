@@ -60,7 +60,7 @@ public class ServerManager: ObservableObject {
                 
                 print("[ServerManager]: selectedMusic -> \(selectedMusic)")
                 
-                NotificationCenter.default.post(name: Notification.Name("gameStarted"), object: nil, userInfo: ["newStep": newStep])
+                NotificationCenter.default.post(name: Notification.Name("gameStarted"), object: nil, userInfo: ["selectedMusic": selectedMusic])
             }
             
             socket.on("lyricsGameResult") { data, ack in
