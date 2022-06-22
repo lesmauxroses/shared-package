@@ -12,6 +12,7 @@ public struct ExploreView: View {
     var percentText: String?
     var text: String
     var hasQr: Bool
+    @State var bouncing: Bool = false
     
     public init(
         percentImage: String? = nil,
@@ -37,8 +38,14 @@ public struct ExploreView: View {
             
             if hasQr {
                 Image("final_qrcode")
+                    .offset(y: bouncing ? -15 : 0)
+                    .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true))
             }
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .onAppear {
+            self.bouncing.toggle()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
             .modifier(NoiseBackgroundWithPattern(theme: .dark, pattern: .explore))
     }
 }

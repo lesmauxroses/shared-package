@@ -33,10 +33,6 @@ public struct OnboardingIntro: View {
             VStack {
                 Spacer()
                 
-                Image("illu_eye_big_dark")
-                    .padding(.bottom, 30)
-                    .opacity(0)
-                
                 Image("title_welcome")
                     .padding(.bottom, 120)
                 
