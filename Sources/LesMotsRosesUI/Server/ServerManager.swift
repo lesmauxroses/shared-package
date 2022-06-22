@@ -74,7 +74,7 @@ public class ServerManager: ObservableObject {
             socket.on("buttonTapped") { data, ack in
                 print("[ServerManager]: buttonTapped")
                 
-                NotificationCenter.default.post(name: Notification.Name("buttonTapped"), object: nil)
+                NotificationCenter.default.post(name: Notification.Name("buttonTapped"), object: nil, userInfo: [:])
             }
             
             socket.on("lyricsGameResult") { data, ack in
