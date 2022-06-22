@@ -14,7 +14,8 @@ import SwiftUI
 public struct PlayerView: UIViewRepresentable {
     var player: AVPlayer?
     
-    public init() {
+    public init(player: AVPlayer?) {
+        self.player = player
     }
     
     var isTransparent = true
