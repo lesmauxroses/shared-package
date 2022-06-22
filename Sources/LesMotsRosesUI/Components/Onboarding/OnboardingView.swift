@@ -15,6 +15,7 @@ public struct OnboardingView: View {
     var missionCaptions: [Caption]
     var introCaptionsDelay: CGFloat
     var missionCaptionsDelay: CGFloat
+    var hasVideo: Bool = true
     
     public init(
         onboardingStep: State<Int>,
@@ -23,7 +24,8 @@ public struct OnboardingView: View {
         introCaptions: [Caption],
         missionCaptions: [Caption],
         introCaptionsDelay: CGFloat,
-        missionCaptionsDelay: CGFloat
+        missionCaptionsDelay: CGFloat,
+        hasVideo: Bool = true
     ) {
         self._onboardingStep = onboardingStep
         self.missionNumber = missionNumber
@@ -32,6 +34,7 @@ public struct OnboardingView: View {
         self.missionCaptions = missionCaptions
         self.introCaptionsDelay = introCaptionsDelay
         self.missionCaptionsDelay = missionCaptionsDelay
+        self.hasVideo = hasVideo
     }
     
     public var body: some View {
@@ -49,7 +52,8 @@ public struct OnboardingView: View {
                     missionNumber: missionNumber,
                     missionIllu: missionIllu,
                     captions: missionCaptions,
-                    captionsDelay: missionCaptionsDelay
+                    captionsDelay: missionCaptionsDelay,
+                    hasVideo: hasVideo
                 )
             default:
                 EmptyView()
