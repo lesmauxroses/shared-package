@@ -7,12 +7,17 @@
 
 import SwiftUI
 
-struct OnboardingIntro: View {
+public struct OnboardingIntro: View {
     @State var bouncing: Bool = false
     let captions: [Caption]
     var captionsDelay: CGFloat = 0
     
-    var body: some View {
+    public init(captions: [Caption], captionsDelay: CGFloat = 0) {
+        self.captions = captions
+        self.captionsDelay = captionsDelay
+    }
+    
+    public var body: some View {
         VStack {
             Spacer()
             
@@ -31,6 +36,5 @@ struct OnboardingIntro: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
-        .modifier(NoiseBackgroundWithPattern(theme: .light, pattern: .onboardingIntro))
     }
 }
