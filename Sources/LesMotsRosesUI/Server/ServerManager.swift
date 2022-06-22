@@ -63,7 +63,11 @@ public class ServerManager: ObservableObject {
             }
             
             socket.on("move") { data, ack in
-                guard let dataDictionary = data[0] as? NSDictionary else { return }
+                guard let dataDictionary = data[0] as? NSDictionary else {
+                    print("[ServerManager]: Impossible to get move data dictionary")
+                    
+                    return
+                }
                 guard let direction = dataDictionary["direction"] as? String else { return }
                 
                 print("[ServerManager]: direction -> \(direction)")
