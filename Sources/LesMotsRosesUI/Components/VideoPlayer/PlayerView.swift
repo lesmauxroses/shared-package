@@ -11,19 +11,22 @@ import UIKit
 import AVFoundation
 import SwiftUI
 
-struct PlayerView: UIViewRepresentable {
+public struct PlayerView: UIViewRepresentable {
     var player: AVPlayer?
+    
+    public init() {
+    }
     
     var isTransparent = true
     
     private static let transparentPixelBufferAttributes = [
       kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
 
-    func makeUIView(context: Context) -> AVPlayerView {
+    public func makeUIView(context: Context) -> AVPlayerView {
         return AVPlayerView()
     }
 
-    func updateUIView(_ playerView: AVPlayerView, context: Context) {
+    public func updateUIView(_ playerView: AVPlayerView, context: Context) {
         playerView.player = player
         
         playerView.playerLayer.pixelBufferAttributes =
@@ -31,8 +34,8 @@ struct PlayerView: UIViewRepresentable {
     }
 }
 
-class AVPlayerView: UIView {
-    override class var layerClass: AnyClass {
+public class AVPlayerView: UIView {
+    public override class var layerClass: AnyClass {
         return AVPlayerLayer.self
     }
     
