@@ -26,7 +26,7 @@ public struct OnboardingIntro: View {
                         self.player.seek(to: .zero)
                         self.player.play()
                     }
-                    
+
                     self.player.play()
                 }
             
@@ -40,7 +40,17 @@ public struct OnboardingIntro: View {
             }        .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .overlay(Image("pattern-overlay-intro"))
+        .overlay(Image("pattern-overlay-intro").resizable())
         .ignoresSafeArea()
+    }
+}
+
+
+struct OnboardingIntron_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack(spacing: 30) {
+            OnboardingIntro(captions: [Caption(text: "fzefezfzzffzefezfzffef", time: 5)])
+        }                .previewLayout(.fixed(width: 1920, height: 1080))
+
     }
 }
