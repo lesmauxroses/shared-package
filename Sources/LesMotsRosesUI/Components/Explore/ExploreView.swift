@@ -17,7 +17,7 @@ public struct ExploreView: View {
     public init(
         percentImage: String? = nil,
         percentText: String? = nil,
-        text: String = "les décors autour de vous avant de passer à la suite",
+        text: String = "les décors autour de vous avantde découvrir\nl'univers suivant sur les réseaux sociaux",
         hasQr: Bool = false
     ) {
         self.percentImage = percentImage
@@ -34,6 +34,8 @@ public struct ExploreView: View {
                 Text(text)
                     .foregroundColor(Color.paleBrown100)
                     .font(.custom("JosefinSans-Bold", size: 38))
+                    .lineSpacing(30)
+                    .multilineTextAlignment(TextAlignment.center)
             }
             
             if hasQr {
