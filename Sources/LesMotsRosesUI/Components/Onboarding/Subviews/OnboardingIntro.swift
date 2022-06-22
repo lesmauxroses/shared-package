@@ -40,6 +40,7 @@ public struct OnboardingIntro: View {
             }        .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay(Image("pattern-overlay-intro"))
         .ignoresSafeArea()
     }
 }
