@@ -6,74 +6,59 @@
 //
 
 import SwiftUI
+import AVKit
 
 public struct OnboardingMission: View {
     var missionNumber: Int? = nil
     let missionIllu: String
     let captions: [Caption]
     var captionsDelay: CGFloat = 0
-    @State var bouncing: Bool = false
+    var hasVideo: Bool = true
+    
+    let player = AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "anim_mission", ofType: "mp4")!))
     
     public init(
         missionNumber: Int?,
         missionIllu: String,
         captions: [Caption],
-        captionsDelay: CGFloat = 0
+        captionsDelay: CGFloat = 0,
+        hasVideo: Bool = true
     ) {
         self.missionNumber = missionNumber
         self.missionIllu = missionIllu
         self.captions = captions
         self.captionsDelay = captionsDelay
+        self.hasVideo = hasVideo
     }
     
     public var body: some View {
-        VStack(spacing: 30) {
-            Spacer()
-            
-            HStack {
-                Image("mission_title")
+        ZStack {
+            if hasVideo {
+                PlayerView(player: player)
+                    .onAppear {
+                        self.player.play()
+                    }
             }
             
-            Image(missionIllu)
-                .padding(.bottom, 90)
-                .offset(y: bouncing ? -15 : 0)
-                .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true))
-            
-            CaptionsView(captions: captions, delay: captionsDelay)
-
-//            VStack {
-//                Text(missionText)
-//                    .padding(.horizontal, 20)
-//                    .padding(.vertical, 30)
-//                    .font(.josefinInfo)
-//                    .foregroundColor(Color.dark100)
-//                    .multilineTextAlignment(TextAlignment.center)
-//                    .frame(width: 821)
-//                    .overlay(RoundedRectangle(cornerRadius: 16)
-//
-//                                .strokeBorder(Color.dark100, lineWidth: 2))
+            VStack(spacing: 30) {
+                Spacer()
                 
-//                HStack {
-//                    Text("Vous avez \(timeAvailable) minutes")
-//                        .padding(20)
-//                        .background(Color.paleBrown100)
-//                        .cornerRadius(16)
-//                        .overlay(RoundedRectangle(cornerRadius: 16)
-//                                    .strokeBorder(Color.MainTheme.getGradientByName(name: "gradientOrangePurple")!, lineWidth: 2)
-//                                    .rotationEffect(Angle(degrees: 0)))
-//                        .font(.josefinBody)
-//                        .foregroundColor(.dark100)
-//                }.offset(x: -380, y: -5)
-//                    .rotationEffect(Angle(degrees: 2.5))
-                    
-//            }
-        }
-        .onAppear {
-            self.bouncing.toggle()
+                HStack {
+                    Image("mission_title")
+                }
+                
+                Image(missionIllu)
+                    .padding(.bottom, 90)
+                    .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true))
+                
+                CaptionsView(captions: captions, delay: captionsDelay)
+
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.paleBrown100)
+        .overlay(Image("pattern-overlay-mission").resizable())
         .ignoresSafeArea()
-        .modifier(NoiseBackgroundWithPattern(theme: .light, pattern: .onboardingMission))
     }
 }
 
