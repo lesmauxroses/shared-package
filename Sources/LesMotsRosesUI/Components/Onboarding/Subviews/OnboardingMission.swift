@@ -45,7 +45,7 @@ public struct OnboardingMission: View {
                 
                 HStack {
                     Image("mission_title")
-                }
+                }.opacity(hasVideo ? 0 : 1)
                 
                 Image(missionIllu)
                     .padding(.bottom, 90)
