@@ -24,7 +24,7 @@ public struct ExploreView: View {
             VStack(spacing: 200) {
                 
                 
-                VStack {
+                VStack(spacing: 30) {
                     Image("title_explore")
                     
                     Text("les décors autour de vous avant de passer à la suite")
@@ -40,7 +40,7 @@ public struct ExploreView: View {
                             .font(.josefinBody)
                             .frame(width: 500)
                             .padding(40)
-                            .padding(.top, 70)
+                            .padding(.top, 50)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(Color.paleBrown100, lineWidth: 2)
@@ -52,25 +52,6 @@ public struct ExploreView: View {
                     }
                 }
             }
-            
-            ZStack {
-                Text("Vous pouvez récupérer votre badge !")
-                    .foregroundColor(Color.paleBrown100)
-                    .font(.josefinBody)
-                    .frame(width: 330)
-                    .padding(25)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.paleBrown100, lineWidth: 2)
-                    )
-                    .rotationEffect(.degrees(-8))
-                
-                Image("explore-eye")
-                    .rotationEffect(.degrees(-8))
-                    .offset(x: 200, y: 20)
-                
-                
-            }.offset(x: -680, y: -320)
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .modifier(NoiseBackgroundWithPattern(theme: .dark, pattern: .explore))
