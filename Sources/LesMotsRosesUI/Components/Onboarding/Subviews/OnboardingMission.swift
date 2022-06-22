@@ -45,11 +45,12 @@ public struct OnboardingMission: View {
                 
                 HStack {
                     Image("mission_title")
-                }.opacity(hasVideo ? 0 : 1)
+                }
                 
                 Image(missionIllu)
                     .padding(.bottom, 90)
                     .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true))
+                    .opacity(hasVideo ? 0 : 1)
                 
                 CaptionsView(captions: captions, delay: captionsDelay)
 
