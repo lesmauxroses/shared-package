@@ -49,6 +49,7 @@ public enum Pattern: String {
     case onboardingWelcome = "pattern-onboarding-welcome"
     case onboardingIntro = "pattern-onboarding-intro"
     case onboardingMission = "pattern-onboarding-mission"
+    case lyricsGame = "pattern-lyrics-game"
     case btc4 = "pattern-BTC-4"
     case btc5 = "pattern-BTC-5"
     case btc28 = "pattern-BTC-28"
